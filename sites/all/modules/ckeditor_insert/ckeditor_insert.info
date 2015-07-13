@@ -1,0 +1,13 @@
+name = CKEditor Insert
+description = CKEditor button to insert files using Insert module
+package = User interface
+core = 7.x
+dependencies[] = insert
+
+
+; Information added by Drupal.org packaging script on 2014-09-02
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "ckeditor_insert"
+datestamp = "1409669518"
+

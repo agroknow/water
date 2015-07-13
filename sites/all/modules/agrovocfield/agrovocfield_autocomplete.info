@@ -1,0 +1,13 @@
+name = AGROVOC autocomplete
+description = AGROVOC autocomplete widget
+dependencies[] = agrovocfield
+core = 7.x
+package = Fields
+
+
+; Information added by drupal.org packaging script on 2013-09-19
+version = "7.x-2.1"
+core = "7.x"
+project = "agrovocfield"
+datestamp = "1379597170"
+

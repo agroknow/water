@@ -1,0 +1,23 @@
+name = AGROVOC field
+description = AGROVOC field
+core = 7.x
+dependencies[] = taxonomy
+dependencies[] = translation
+dependencies[] = locale
+dependencies[] = i18n
+dependencies[] = i18n_taxonomy
+package = Fields
+
+files[] = agrovocfield.test
+files[] = includes/agrovoc.inc
+files[] = includes/agrovoc_remote.inc
+files[] = includes/agrovoc_local.inc
+
+
+
+; Information added by drupal.org packaging script on 2013-09-19
+version = "7.x-2.1"
+core = "7.x"
+project = "agrovocfield"
+datestamp = "1379597170"
+

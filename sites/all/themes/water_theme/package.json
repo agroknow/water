@@ -1,0 +1,17 @@
+{
+  "name": "water_theme",
+  "version": "1.0.0",
+  "description": "To help consolidate and remove possible future inconsistencies, the documentation for this sub-theme starter kit has been moved to: http://drupal.org/node/1978010.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+  "grunt": "~0.4.5",
+  "grunt-contrib-less": "~0.11.0",
+  "grunt-contrib-watch": "~0.6.1"
+},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
