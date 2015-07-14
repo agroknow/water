@@ -81,6 +81,9 @@ function water_preprocess_page(&$vars) {
     ));
       
       }
+      //create a variable to hold rich title field added to specific content types
+      $view = node_view($vars['node']);
+      $vars['rich_title'] = render($view['field_rich_title']);
   }
     
         
