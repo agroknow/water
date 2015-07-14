@@ -8,6 +8,9 @@ stylesheets[all][] = css/normalize.min.css
 stylesheets[all][] = css/slick.css
 stylesheets[all][] = css/main.css
 stylesheets[all][] = css/theme_style_override.css
+stylesheets[all][] = css/accordion.css
+
+scripts[] = js/accordion.js
 
 regions[header_top_right] = Header Top Right
 regions[header] = Header

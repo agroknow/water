@@ -1041,3 +1041,8 @@ article.event section .more {
 #edit-import-taxonomy {
 	visibility:hidden;
 }
+/* extra styles */
+.print-toc{
+    float: right;
+    padding-right: 20px;
+}
