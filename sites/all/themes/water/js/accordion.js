@@ -1,10 +1,7 @@
 jQuery(document).ready(function() {
         var expCollapse;
-        if(jQuery('body').hasClass('logged-in')){
-        expCollapse = jQuery('<p><a id="expand" href="#">Expand All</a>/<a id="collapse" href="#">Collapse all</a><a class="print-toc" href="/print/booktree">print TOC</a></p>');
-        } else {
-        expCollapse = jQuery('<p><a id="expand" href="#">Expand All</a>/<a id="collapse" href="#">Collapse all</a></p>');    
-        }
+        expCollapse = jQuery('<p><a id="expand" href="#">Expand All</a>/<a id="collapse" href="#">Collapse all</a><a class="print-toc" href="/print/booktree" target="_blank">print TOC</a></p>');
+        
         var bookContainer = jQuery('#block-system-main > div > ul.booktree');
         bookContainer.before(expCollapse);
 	
