@@ -31,3 +31,6 @@ ul.booktree > li.booktree:hover {
 #block-system-main > div > ul.booktree{
     padding-right: 20px;
 }
+#block-system-main > div > ul.booktree li.booktree.parent{
+    font-weight: bold;
+}

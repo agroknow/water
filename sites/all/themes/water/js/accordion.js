@@ -4,7 +4,12 @@ jQuery(document).ready(function() {
         
         var bookContainer = jQuery('#block-system-main > div > ul.booktree');
         bookContainer.before(expCollapse);
-	
+	/*add parent class for styling*/
+        var els = jQuery('ul.booktree li.booktree');
+        els.each(function(){
+            if(jQuery(this).next().hasClass('container'))
+                jQuery(this).addClass('parent');
+        });
     jQuery('ul.booktree > li.booktree').click(function(e) {
   	e.preventDefault();
     var $this = jQuery(this);
