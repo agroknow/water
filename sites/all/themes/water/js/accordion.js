@@ -1,15 +1,15 @@
 jQuery(document).ready(function() {
         var expCollapse;
-        expCollapse = jQuery('<p><a id="expand" href="#">Expand All</a>/<a id="collapse" href="#">Collapse all</a><a class="print-toc" href="/print/booktree" target="_blank">print TOC</a></p>');
+        expCollapse = jQuery('<p><a id="expand" href="#">Expand All</a>/<a id="collapse" href="#">Collapse all</a><a class="print-toc" href="/printpdf/booktree" target="_blank">pdf</a><a class="print-toc" href="/print/booktree" target="_blank">print TOC</a></p>');
         
         var bookContainer = jQuery('#block-system-main > div > ul.booktree');
         bookContainer.before(expCollapse);
 	/*add parent class for styling*/
-        var els = jQuery('ul.booktree li.booktree');
+        /*var els = jQuery('ul.booktree li.booktree');
         els.each(function(){
             if(jQuery(this).next().hasClass('container'))
                 jQuery(this).addClass('parent');
-        });
+        });*/
     jQuery('ul.booktree > li.booktree').click(function(e) {
   	e.preventDefault();
     var $this = jQuery(this);
