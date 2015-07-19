@@ -96,7 +96,7 @@ function booktree_indice() {
   return $content;
 }
 
-function booktree_mostra_figli($mlid, $nid, $tit, $ricursione, $maxricursione, $trimval, $mlid_start) {
+function booktree_mostra_figli($mlid, $nid, $tit, $ricursione, $maxricursione, $trimval, $mlid_start, $parent = '') {
 
   if ($ricursione < $maxricursione) {
     $c = '';
@@ -104,7 +104,7 @@ function booktree_mostra_figli($mlid, $nid, $tit, $ricursione, $maxricursione, $
 
     $query = db_select('book', 'b');
     $query->innerJoin('menu_links', 'm', 'b.mlid = m.mlid');
-    $query->fields('m', array('plid', 'mlid'));
+    $query->fields('m', array('plid', 'mlid', 'has_children')); //get has_children to add a parent class
     $query->innerJoin('node', 'n', 'n.nid = b.nid');
     $query->fields('n', array('nid', 'vid', 'title')); //get vid for revision
     //-- addition to get field_rich_title
@@ -121,7 +121,7 @@ function booktree_mostra_figli($mlid, $nid, $tit, $ricursione, $maxricursione, $
     
     //Now hide a root book node
     if ($mlid != $mlid_start) {
-      $content .= "<li class=\"booktree\">" . l(truncate_utf8($tit, $trimval, TRUE, TRUE), 'node/' . $nid, $attributes = array(), $query = NULL, $fragment = NULL, $absolute = FALSE, $html = FALSE) . "</li>";
+      $content .= "<li class=\"booktree$parent\">" . l(truncate_utf8($tit, $trimval, TRUE, TRUE), 'node/' . $nid, $attributes = array(), $query = NULL, $fragment = NULL, $absolute = FALSE, $html = FALSE) . "</li>";
     }
     $ricursione++;
     foreach ($children as $child) {
@@ -129,11 +129,9 @@ function booktree_mostra_figli($mlid, $nid, $tit, $ricursione, $maxricursione, $
       //better strip all tags and allow some..
       $child->richTitle = preg_replace('#<h([1-6])[^>]*?>(.+?)</h\1>#is', '$2', $child->richTitle);
       //$c .= booktree_mostra_figli($child->mlid, $child->nid, $child->title, $ricursione, $maxricursione, $trimval, $mlid_start);
-      $c .= booktree_mostra_figli($child->mlid, $child->nid, $child->richTitle, $ricursione, $maxricursione, $trimval, $mlid_start);
-      
+      $c .= booktree_mostra_figli($child->mlid, $child->nid, $child->richTitle, $ricursione, $maxricursione, $trimval, $mlid_start, $child->has_children ? ' parent':'');
       
     }
-    
     //now write content only if necessary
     if (strlen($c) > 2) {
       if ($ricursione === 2) {
