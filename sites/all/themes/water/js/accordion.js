@@ -14,6 +14,7 @@ jQuery(document).ready(function() {
   	e.preventDefault();
     var $this = jQuery(this);
     if ($this.next('li.container').hasClass('show')) {
+        $this.removeClass('active');
         $this.next('li.container').removeClass('show');
         $this.next('li.container').slideUp(350);
     } else {
@@ -22,6 +23,9 @@ jQuery(document).ready(function() {
         $this.parent().find('li.container').removeClass('show');
         $this.parent().find('li.container').slideUp(350);
         */
+       if ($this.next().hasClass('container')) {
+        $this.addClass('active');
+    }
         $this.next('li.container').toggleClass('show');
         $this.next('li.container').slideToggle(350);
     }
@@ -33,8 +37,10 @@ jQuery(document).ready(function() {
 	});
         jQuery('#expand').click(function(e) {
             bookContainer.find('li.container').slideDown();
+            jQuery('ul.booktree li.booktree.parent').addClass('active');
 	});
         jQuery('#collapse').click(function(e) {
             bookContainer.find('li.container').slideUp();
+            jQuery('ul.booktree li.booktree.parent').removeClass('active');
 	});
 });

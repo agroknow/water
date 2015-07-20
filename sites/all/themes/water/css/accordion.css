@@ -39,3 +39,26 @@ background: #185F98;
 /*#block-system-main > div > ul.booktree li.booktree.parent{
     font-weight: bold;
 }*/
+/*Arrows*/
+li.booktree.parent.active:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 8px;
+  border-color: #fff transparent transparent transparent;
+  float: right;
+  top: 10px;
+  position: relative;
+}
+li.booktree.parent:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 8px;
+  border-color: transparent #fff transparent transparent;
+  float: right;
+  top: 6px;
+  position: relative;
+}
