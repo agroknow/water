@@ -1,4 +1,4 @@
-ul.booktree {
+ul.booktree, .book-navigation ul.menu {
   list-style: none;
   padding: 0;
 }
@@ -10,13 +10,13 @@ ul.booktree .container {
 ul.booktree .container.show {
   /*display: block;*/
 }
-ul.booktree li {
+ul.booktree li, .book-navigation li.leaf, .book-navigation li.collapsed{
   margin: .5em 0;
 }
-ul.booktree > li.booktree a {
+ul.booktree > li.booktree a, .book-navigation li.leaf a, .book-navigation li.collapsed a {
   color: #fff;
 }
-ul.booktree > li.booktree {
+ul.booktree > li.booktree, .book-navigation li.leaf, .book-navigation li.collapsed {
   width: 100%;
   display: block;
   background: #3a89c9;
@@ -25,9 +25,40 @@ ul.booktree > li.booktree {
   border-radius: 0.15em;
   transition: background .3s ease;
 }
-ul.booktree > li.booktree:hover {
+ul.booktree > li.booktree:hover, .book-navigation li.leaf:hover, .book-navigation li.collapsed:hover {
   background: rgba(58, 137, 201, 0.75);
 }
-#block-system-main > div > ul.booktree{
+#block-system-main > div > ul.booktree /*,.book-navigation ul.menu*/{
     padding-right: 20px;
+}
+.book-navigation ul li.collapsed{
+list-style-image: none;
+margin-left: 0;
+background: #185F98;
+}
+/*#block-system-main > div > ul.booktree li.booktree.parent{
+    font-weight: bold;
+}*/
+/*Arrows*/
+li.booktree.parent.active:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 8px;
+  border-color: #fff transparent transparent transparent;
+  float: right;
+  top: 10px;
+  position: relative;
+}
+li.booktree.parent:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 8px;
+  border-color: transparent #fff transparent transparent;
+  float: right;
+  top: 6px;
+  position: relative;
 }

@@ -58,7 +58,7 @@ $('#' + map.mapId).data('mapOptions', mapOptions);
       for(var i in map.legend.content){
         oInnerLegend.append('<a class="check filter-elm" href="javascript:void(0);" data-gmap-marker-group="'+map.legend.content[i].text+'">'+
                                 '<img height="28" src="'+map.legend.content[i].iconUrl+'"/>&nbsp;' +
-                                map.legend.content[i].text.substr(0, 28) +
+                                map.legend.content[i].text.substr(0, 30) + '...' +
                             '</a>');
       }
       oLegend = oLegend[0]; //add to gmap controls HTML reference NOT jQuery one

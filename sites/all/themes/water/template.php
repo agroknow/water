@@ -48,7 +48,7 @@ function water_form_alter(&$form, &$form_state, $form_id) {
  * $feed_icons, $breadcrumb
  */
 function water_preprocess_page(&$vars) {
-  if (isset($vars['node'])) {
+  if ( isset($vars['node']) && isset($vars['node']->type) ) {
     // If the node type is "blog_madness" the template suggestion will be "page--blog-madness.tpl.php".
     $vars['theme_hook_suggestions'][] = 'page__'. $vars['node']->type;
       
@@ -81,9 +81,11 @@ function water_preprocess_page(&$vars) {
     ));
       
       }
+      if($vars['node']->type == 'book'){
       //create a variable to hold rich title field added to specific content types
       $view = node_view($vars['node']);
       $vars['rich_title'] = render($view['field_rich_title']);
+      }
   }
     
         

@@ -39,9 +39,7 @@ $legendInfo = array();
 $text = '';
 $inlineDelim = ' ';
 $paragraphDelim = '<br/>';
-$geolocationIdx = (strpos($_SERVER['SERVER_NAME'], 'agroknow.gr') === false) ?
-                    'field_person_geolocation' : 
-                    'field_testttt';
+$geolocationIdx = 'field_person_geolocation';
 
 foreach ($rows as $row_count => $row){
     if($row[$geolocationIdx] != ''){
