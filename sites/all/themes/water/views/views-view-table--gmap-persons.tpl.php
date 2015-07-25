@@ -87,28 +87,33 @@ foreach ($rows as $row_count => $row){
         /*
          * get icon from taxonomy term
          */
-        $term_tree = taxonomy_get_term_by_name($groups[0]);
-        foreach ($term_tree as $term) {
-            //var_dump($term);
-            $icon = (!empty($term) && !empty($term->field_marker_url)) ? $term->field_marker_url['und']['0']['value'] : 'marker.png';
-        }        
-        /*
-         * markers options: https://developers.google.com/maps/documentation/javascript/reference?csw=1#MarkerOptions
-         * markers icons: http://mabp.kiev.ua/2010/01/12/google-map-markers/
-         */
-        $icon_url = file_create_url(variable_get('file_public_path', conf_path() . '/files') . '/gmap3_markers/'.$icon);
-        $markers[] = gmap3_tools_create_marker($coordinates[0], $coordinates[1], '', $text, array(
-            'icon' => $icon_url,
-            'group' => $groups[0]
-        ));        
-        /*
-         * legend info
-         */
-        if(empty($legendInfo[$groups[0]])){
-            $legendInfo[$groups[0]] = array(
-                'iconUrl' =>  $icon_url,
-                'text' => $groups[0]
-            );
+        foreach ($groups as $key => $group) {
+            $term_tree = taxonomy_get_term_by_name($group);
+            foreach ($term_tree as $term) {
+                //$term_tree = taxonomy_get_term_by_name($groups[0]);
+                $icon = (!empty($term) && !empty($term->field_marker_url)) ? $term->field_marker_url['und']['0']['value'] : 'marker.png';
+
+                /*
+                * markers options: https://developers.google.com/maps/documentation/javascript/reference?csw=1#MarkerOptions
+                * markers icons: http://mabp.kiev.ua/2010/01/12/google-map-markers/
+                */
+                $icon_url = file_create_url(variable_get('file_public_path', conf_path() . '/files') . '/gmap3_markers/'.$icon);
+                if($key == 0) {
+                $markers[] = gmap3_tools_create_marker($coordinates[0], $coordinates[1], '', $text, array(
+                    'icon' => $icon_url,
+                    'group' => $groups
+                ));        
+                }
+                /*
+                * legend info
+                */
+                if(empty($legendInfo[$group])){
+                    $legendInfo[$group] = array(
+                        'iconUrl' =>  $icon_url,
+                        'text' => $group
+                    );
+                }
+            }
         }
     }
 }

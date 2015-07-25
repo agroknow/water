@@ -56,9 +56,12 @@ $('#' + map.mapId).data('mapOptions', mapOptions);
                       '</div>');
       var oInnerLegend = oLegend.find('.inner');
       for(var i in map.legend.content){
+        var ellipsis = '';
+        if(map.legend.content[i].text.length > 30)
+            ellipsis = '...';
         oInnerLegend.append('<a class="check filter-elm" href="javascript:void(0);" data-gmap-marker-group="'+map.legend.content[i].text+'">'+
                                 '<img height="28" src="'+map.legend.content[i].iconUrl+'"/>&nbsp;' +
-                                map.legend.content[i].text.substr(0, 30) + '...' +
+                                map.legend.content[i].text.substr(0, 30) + ellipsis +
                             '</a>');
       }
       oLegend = oLegend[0]; //add to gmap controls HTML reference NOT jQuery one
@@ -104,9 +107,10 @@ function gmap3ToolsFilterMarkers(event){
   var sAllValue = event.data.allValue || '',
       sMapId = event.data.mapId || '',
       sGroup = $(this).attr('data-gmap-marker-group') || '',
+      curIcon = $(this).find('img').attr('src') || '',
       aMarkers = $('#' + sMapId).data('gmapMarkers'),
       oMarkerClusterer = $('#' + sMapId).data('gmapMarkerClusterer');
-    
+      
     /*
      * set checked indicator
      */
@@ -114,10 +118,13 @@ function gmap3ToolsFilterMarkers(event){
     $(this).addClass('withgreen');
     
   $.each(aMarkers, function(i, marker) {
-      if(marker.group !== sGroup && sGroup != sAllValue)
+      if( ($.inArray(sGroup, marker.group) === -1) && sGroup != sAllValue)
         marker.setVisible(false);
-      else
+      else {
+          if(sGroup != sAllValue)
+            marker.setIcon(curIcon);
         marker.setVisible(true);
+      }
   });
 //http://stackoverflow.com/a/9061734
     oMarkerClusterer.setIgnoreHidden(true);
