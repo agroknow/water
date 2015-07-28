@@ -9,6 +9,7 @@ stylesheets[all][] = css/slick.css
 stylesheets[all][] = css/main.css
 stylesheets[all][] = css/theme_style_override.css
 stylesheets[all][] = css/accordion.css
+stylesheets[all][] = css/media-queries.css
 
 scripts[] = js/accordion.js
 

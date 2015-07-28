@@ -166,12 +166,14 @@ nav.topnav a.ir {
     min-width: 152px;
     opacity: 0;
     visibility: hidden;
+    display: none;
     transition: margin-left 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
 }
 .main > ul .opened > ul {
     margin-left: -8px;
     opacity: 1;
     visibility: visible;
+    display: block;
 }
 .main > ul ul li {
     margin: 10px 0;
