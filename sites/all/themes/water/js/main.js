@@ -115,4 +115,9 @@ oWaterJQuery(document).ready(function() {
         });
     });
     
+    oWaterJQuery('#block-system-main').on('click', '#markers-legend #toggle', function(){
+        var $this = oWaterJQuery(this);
+        $this.parent().animate('left','0px !important');
+    });
+    
 });

@@ -1,10 +1,135 @@
 /* 960 and under */
 @media screen and (max-width: 960px) {
-	
+    /* General rules */
+.center {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    }
+    .exticons span{
+        width: 70%;
+    }
+    .exticons{
+        width: 48%;
+    }
+    .twocols > *{
+        width: 50%;
+    }
+    .footer-top nav.socials{
+        width: 50%;
+    }
+    div#block-simplenews-10{
+        width: 50%;
+        margin-left: 0;
+    }
+    .footer-top nav.socials > div + div{
+        margin-left: 0;
+    }
+    .footer-middle .block{
+        width: 45%;
+        float: right;
+    }
+    .footer-middle{
+        height: auto;
+    }
+    .footer-top .center.clearfix, .footer-middle .center.clearfix{
+        max-width: 700px;
+    }
+    .footer-middle .firstblock, .footer-middle .thirdblock{
+        float: left;
+    }
+    .footer-middle .block:first-child{
+        margin-left: 20px;
+    }
+    /* Primary tabs */
+    ul.primary li a{
+        padding: 0 0.2em;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {
-	
+        /* General rules */
+.center {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 480px;
+    }
+    .exticons span{
+        width: 70%;
+    }
+    .exticons{
+        width: 100%;
+        margin: 20px 0;
+    }
+    .twocols > *{
+        width: 100%;
+    }
+    .footer-top nav.socials{
+        width: 100%;
+    }
+    div#block-simplenews-10{
+        width: 100%;
+        margin-left: 0;
+    }
+    .footer-top nav.socials > div + div{
+        margin-left: 20px;
+    }
+    .footer-middle .block{
+        width: 100%;
+        float: left;
+    }
+    .footer-middle{
+        height: auto;
+    }
+    .footer-top .center.clearfix, .footer-middle .center.clearfix{
+        max-width: 480px;
+    }
+    .footer-middle .firstblock, .footer-middle .thirdblock{
+        float: left;
+    }
+    .footer-middle .block:first-child{
+        margin-left: 20px;
+    }
+    /* Table */
+    table{
+        margin: auto;
+    }
+    /* Primary tabs */
+    ul.primary li a{
+        padding: 0 0.2em;
+    }
+    /* With sidebar */
+    section.sidebars div.block-block, section.sidebars div.block-views{
+        width: 100%;
+    }
+    section.sidebars div.region-content{
+        width: 100%;
+    }
+    .basic-wrapper h2{
+        text-align: center;
+    }
+    /* booktree */
+    #block-system-main > div > ul.booktree{
+        padding-right: 0;
+    }
+    /* basic wrapper */
+    .basic-wrapper{
+        padding: 45px 20px;
+    }
+    /* Map legend */
+    #markers-legend #toggle{
+        position: absolute;
+        top: 0;
+        right:-65px;
+        width: 65px;
+        height: 50px;
+    }
+    /*#markers-legend{
+        left: -230px !important;
+    }*/
+    
 }
 
 @media screen and (max-width: 480px) {

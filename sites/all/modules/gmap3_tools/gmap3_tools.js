@@ -54,6 +54,9 @@ $('#' + map.mapId).data('mapOptions', mapOptions);
                           '<a class="check filter-elm withgreen" href="javascript:void(0)" data-gmap-marker-group="all_groups">All</a>'+
                         '</div>'+
                       '</div>');
+      if($(document).width() <= 768 ) {
+        oLegend.prepend('<div id="toggle">Show filters</div>');  
+      }
       var oInnerLegend = oLegend.find('.inner');
       for(var i in map.legend.content){
         var ellipsis = '';
