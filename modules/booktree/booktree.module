@@ -127,8 +127,7 @@ function booktree_mostra_figli($mlid, $nid, $tit, $ricursione, $maxricursione, $
     foreach ($children as $child) {
       //match heading tags and remove them
       //better strip all tags and allow some..
-      /*$child->richTitle = preg_replace('#<h([1-6])[^>]*?>(.+?)</h\1>#is', '$2', $child->richTitle);*/
-      $child->richTitle = strip_tags($child->richTitle);
+      $child->richTitle = preg_replace('#<h([1-6])[^>]*?>(.+?)</h\1>#is', '$2', $child->richTitle);
       //$c .= booktree_mostra_figli($child->mlid, $child->nid, $child->title, $ricursione, $maxricursione, $trimval, $mlid_start);
       $c .= booktree_mostra_figli($child->mlid, $child->nid, $child->richTitle, $ricursione, $maxricursione, $trimval, $mlid_start, $child->has_children ? ' parent':'');
       

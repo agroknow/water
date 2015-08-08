@@ -103,9 +103,9 @@
       hide($content['links']);
       hide($content['field_rich_title']);
       print render($content);
-      /*$bnav = '';
+      $bnav = '';
       $bnav .= booktree_mostra_figli($node->book['mlid'], $node->nid, $node->title, 1, 3, 500, $node->book['mlid']);
-      print render($bnav);*/
+      print render($bnav);
     ?>
   </div>
 
