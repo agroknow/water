@@ -142,6 +142,14 @@ return $matches;
     var_dump($matches);exit;
     return $matches;
   }
+  
+  /**
+   *Override LinkitSearchPluginEntity::createPAth
+   */
+  function createPath($entity) {
+    //Return only biblio_citekey  
+    return $entity->biblio_citekey;
+  }
 
   /**
    * Overrides LinkitSearchPlugin::buildSettingsForm().
