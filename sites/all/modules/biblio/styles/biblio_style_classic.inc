@@ -52,7 +52,7 @@ function biblio_style_classic($node) {
   }
   $output .= '<span class="biblio-title">';
   $url = biblio_get_title_url_info($node);
-  $output .= l($node->title, $url['link'], $url['options']);
+  $output .= l(biblio_remove_brace($node->title), $url['link'], $url['options']);
   $output .= "</span>, \n";
   $output .= '<span class="biblio-authors">' . $authors . "</span> \n";
   if ($node->biblio_secondary_title) {

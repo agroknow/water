@@ -131,7 +131,7 @@ return $matches;
       }
 
       $matches[] = array(
-        'title' => $this->createLabel($entity),
+        'title' => biblio_remove_brace($this->createLabel($entity)),
         'description' => $this->createDescription($entity) . ' Year: ' . $result[$key],
         'path' => $this->createPath($entity),
         'group' => $this->createGroup($entity),
@@ -139,6 +139,7 @@ return $matches;
       );
 
     }
+    var_dump($matches);exit;
     return $matches;
   }
 
