@@ -201,3 +201,6 @@ a.check.withgreen {
   .content .form-item:hover > .description {
     display: block;
 }
+#filterButton{
+        display: none;
+    }

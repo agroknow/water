@@ -54,9 +54,9 @@ $('#' + map.mapId).data('mapOptions', mapOptions);
                           '<a class="check filter-elm withgreen" href="javascript:void(0)" data-gmap-marker-group="all_groups">All</a>'+
                         '</div>'+
                       '</div>');
-      if($(document).width() <= 768 ) {
-        oLegend.prepend('<div id="toggle">Show filters</div>');  
-      }
+//      if($(document).width() <= 768 ) {
+//        oLegend.prepend('<div id="toggle">Show filters</div>');  
+//      }
       var oInnerLegend = oLegend.find('.inner');
       for(var i in map.legend.content){
         var ellipsis = '';
@@ -69,8 +69,11 @@ $('#' + map.mapId).data('mapOptions', mapOptions);
       }
       oLegend = oLegend[0]; //add to gmap controls HTML reference NOT jQuery one
       oLegend.index = 1;
+      if($(document).width() <= 768 ) {
+      gmap.controls[google.maps.ControlPosition.TOP_CENTER].push(oLegend);     
+      } else {
       gmap.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(oLegend);
-
+      }
       //click event on legend elements
       $('#'+map.mapId).on("click", '#markers-legend [data-gmap-marker-group]', {
         mapId : map.mapId,
@@ -132,8 +135,12 @@ function gmap3ToolsFilterMarkers(event){
 //http://stackoverflow.com/a/9061734
     oMarkerClusterer.setIgnoreHidden(true);
     oMarkerClusterer.repaint();
-    
-    (sGroup === sAllValue) && gmap3ToolsFit2Markers(sMapId);
+    if($(document).width() <= 768 ) {
+     $('#markers-legend').slideToggle();
+     gmap3ToolsFit2Markers(sMapId);   
+    } else {
+     (sGroup === sAllValue) && gmap3ToolsFit2Markers(sMapId);   
+    }
 }
 /**
  * Create markers.
