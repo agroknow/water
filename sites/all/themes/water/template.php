@@ -107,7 +107,17 @@ function water_preprocess_html(&$variables) {
         '<script src="'.base_path() . path_to_theme().'/js/vendor/slick.min.js"></script>'.
         '<script>var oWaterJQuery = $.noConflict(true);</script>'.
         '<script src="'.base_path() . path_to_theme().'/js/main.js"></script>'.
-        '';
+        '<script>
+            jQuery(\'#navigation\').slimmenu(
+            {
+                resizeWidth: \'800\',
+                collapserTitle: \'Main Menu\',
+                animSpeed: \'medium\',
+                easingEffect: null,
+                indentChildren: false,
+                childrenIndenter: \'&nbsp;\'
+            });
+        </script>';
     
     global $base_root, $base_path;
     
@@ -182,7 +192,7 @@ function water_menu_link__user_menu($variables){
  * hook theme_menu_tree (defined in includes/menu.inc)
  */
 function water_menu_tree__main_menu($variables){
-    return '<ul class="clearfix">' . $variables['tree'] . '</ul>';
+    return '<ul id="navigation" class="slimmenu clearfix">' . $variables['tree'] . '</ul>';
 }
 
 /*

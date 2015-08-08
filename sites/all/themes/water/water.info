@@ -10,8 +10,10 @@ stylesheets[all][] = css/main.css
 stylesheets[all][] = css/theme_style_override.css
 stylesheets[all][] = css/accordion.css
 stylesheets[all][] = css/media-queries.css
+;stylesheets[all][] = css/slimmenu.min.css
 
 scripts[] = js/accordion.js
+scripts[] = js/jquery.slimmenu.min.js
 
 regions[header_top_right] = Header Top Right
 regions[header] = Header
