@@ -139,7 +139,6 @@ return $matches;
       );
 
     }
-    var_dump($matches);exit;
     return $matches;
   }
   
