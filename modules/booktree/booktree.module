@@ -93,7 +93,7 @@ function booktree_indice() {
       $content .= booktree_mostra_figli($node->book['mlid'], $node->nid, $node->title, 1, $maxricursione, $trimval, $node->book['mlid']);
     }
   }
-  $content .= '<p></p>';
+  $content .= '<p>Titles in bold indicate chapters that have published content</p>';
   return $content;
 }
 
