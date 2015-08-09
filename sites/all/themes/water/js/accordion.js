@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
         var expCollapse;
-        expCollapse = jQuery('<p><a id="expand" href="#">Expand All</a>/<a id="collapse" href="#">Collapse all</a><!-- <a class="print-toc" href="/printpdf/booktree" target="_blank">pdf</a><a class="print-toc" href="/print/booktree" target="_blank">print TOC</a>--></p>');
+        expCollapse = jQuery('<p><a id="expand" href="#">Expand All</a>/<a id="collapse" href="#">Collapse all</a><a class="print-toc" href="/printpdf/booktree" target="_blank">pdf</a><a class="print-toc" href="/print/booktree" target="_blank">print TOC</a></p>');
         
         var bookContainer = jQuery('#block-system-main > div > ul.booktree');
         bookContainer.before(expCollapse);
