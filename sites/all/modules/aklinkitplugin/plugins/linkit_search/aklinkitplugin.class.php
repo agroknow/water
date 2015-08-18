@@ -131,7 +131,7 @@ return $matches;
       }
 
       $matches[] = array(
-        'title' => $this->createLabel($entity),
+        'title' => biblio_remove_brace($this->createLabel($entity)),
         'description' => $this->createDescription($entity) . ' Year: ' . $result[$key],
         'path' => $this->createPath($entity),
         'group' => $this->createGroup($entity),
@@ -140,6 +140,14 @@ return $matches;
 
     }
     return $matches;
+  }
+  
+  /**
+   *Override LinkitSearchPluginEntity::createPAth
+   */
+  function createPath($entity) {
+    //Return only biblio_citekey  
+    return $entity->biblio_citekey;
   }
 
   /**

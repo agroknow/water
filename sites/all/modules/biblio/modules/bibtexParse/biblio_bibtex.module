@@ -228,7 +228,9 @@ function _biblio_bibtex_import($entries, $terms = array(), $batch = FALSE, $sess
       }
     }
 
-    $node->biblio_citekey = (!empty($entry['bibtexCitation'])) ? $entry['bibtexCitation'] : NULL;
+    //$node->biblio_citekey = (!empty($entry['bibtexCitation'])) ? $entry['bibtexCitation'] : NULL;
+    //Do not use citekey from bibtex record, set null in order to auto generate
+    $node->biblio_citekey = NULL;
     if (!empty($entry['editor'])) {
       $author_array = preg_split("/\s(and|&)\s/i", trim($entry['editor']));
       foreach ($author_array as $key => $author) {
