@@ -69,7 +69,7 @@ foreach ($element['#items'] as $idx => $author){
         $initials = !empty($node->field_initials) ? ' '.$node->field_initials["und"][0]["value"] : '';
         $item['#title'] .= $initials;
       ?>
-      <span><?php print render($item); ?></span>
+      <span><?php /*print render($item);*/ print l($item['#title'], 'persons'); ?></span>
     <?php endforeach; ?>
   </div>
 </div>
