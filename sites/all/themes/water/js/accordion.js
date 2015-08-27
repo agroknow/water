@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
         */
        if ($this.next().hasClass('container')) {
         $this.addClass('active');
-    }
+        }
         $this.next('li.container').toggleClass('show');
         $this.next('li.container').slideToggle(350);
     }
@@ -38,9 +38,11 @@ jQuery(document).ready(function() {
         jQuery('#expand').click(function(e) {
             bookContainer.find('li.container').slideDown();
             jQuery('ul.booktree li.booktree.parent').addClass('active');
+            jQuery('ul.booktree li.container').addClass('show');
 	});
         jQuery('#collapse').click(function(e) {
             bookContainer.find('li.container').slideUp();
             jQuery('ul.booktree li.booktree.parent').removeClass('active');
+            jQuery('ul.booktree li.container').removeClass('show');
 	});
 });
