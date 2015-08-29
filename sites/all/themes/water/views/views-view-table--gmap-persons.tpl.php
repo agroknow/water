@@ -23,6 +23,7 @@
 <?php
 //Load gmap3_tools.inc file
 module_load_include('inc', 'gmap3_tools');
+print '<div id="filterButton"><a href="javascript:void(0)">Filters</a></div>';
 //add html element 'organization-gmap-canvas' in template file that will hold Google map          
 print '<div id="organization-gmap-canvas"><div class="ajax-progress" style="width:100%;margin-left:49%;"><div class="throbber"></div></div></div>';
 //add html element 'markers-legend' in template file that will hold Google map's legend

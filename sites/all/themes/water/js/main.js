@@ -115,4 +115,11 @@ oWaterJQuery(document).ready(function() {
         });
     });
     
+    oWaterJQuery('#block-system-main').on('click', '#filterButton', function(){
+        var docwidth= oWaterJQuery(document).width(); // center legend before show in case window resized
+        oWaterJQuery('#markers-legend').css('left',docwidth/2 -115).slideToggle();
+    });
+    
+    oWaterJQuery('table.views-table,table.sticky-enabled,table.sticky-header').addClass('waterstyle');
+    
 });
