@@ -45,17 +45,53 @@
     ul.primary li a{
         padding: 0 0.2em;
     }
+    .main > ul > li{
+        margin-left: 15px;
+    }
+    #book-outline{
+    min-width: 0;
+}
     
 }
-
+/* 768 and under */
 @media screen and (max-width: 768px) {
+    .sub-collapser{
+    display: block;
+}
         /* General rules */
+header#header .center {
+    max-width: 95%;
+    }
+        
 .center {
     display: block;
     width: 100%;
     margin: 0 auto;
     max-width: 480px;
     }
+    
+    /* Search */
+    .search{
+        width: 100%;
+    }
+    .search form{
+        width: 100%;
+    }
+    .search input[type='text']{
+        width: 92%;
+    }
+    .search a{
+        float: none;
+        margin-left: 15%;
+        display: inline-block;
+        padding: 7px 0;
+    }
+    /* /search */
+    /* aside */
+    #slider > aside > .center{
+     max-width: 95%;
+    }
+    /* /aside */
     .exticons span{
         width: 70%;
     }
@@ -77,8 +113,14 @@
         margin-left: 20px;
     }
     .footer-middle .block{
-        width: 100%;
-        float: left;
+        /*width: 100%;
+        float: left;*/
+    margin: 0 0 0 20px;
+    padding: 84px 20px 0 0;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 440px;
+    float: none;
     }
     .footer-middle{
         height: auto;
@@ -87,11 +129,9 @@
         max-width: 480px;
     }
     .footer-middle .firstblock, .footer-middle .thirdblock{
-        float: left;
+        /*float: left;*/
     }
-    .footer-middle .block:first-child{
-        margin-left: 20px;
-    }
+    
     /* Table */
     table{
         margin: auto;
@@ -132,13 +172,16 @@
     .main:after{
         content: none;
     }
+    
     /*slim menu css*/
     .menu-collapser {
     position: relative;
-    background-color: #999;
+    background-color: transparent;
     color: #FFF;
     text-shadow: 0 1px 0 rgba(0,0,0,0.5);
-    width: 100%;
+    /*width: 100%;*/
+    width: 150px;
+    margin: auto;
     height: 48px;
     line-height: 48px;
     font-size: 16px;
@@ -201,14 +244,14 @@ ul.slimmenu {
 ul.slimmenu li {
     position: relative;
     display: inline-block;
-    background-color: #AAA;
+   /* background-color: #AAA;*/
 }
-ul.slimmenu > li { margin-right: -5px; border-left: 1px solid #999 }
+ul.slimmenu > li { margin-right: -5px; /*border-left: 1px solid #999*/ }
 ul.slimmenu > li:first-child { border-left: 0 }
 ul.slimmenu > li:last-child { margin-right: 0 }
 ul.slimmenu li a {
     display: block;
-    color: #333;
+    /*color: #333;*/
     padding: 12px 64px 12px 16px;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -220,11 +263,11 @@ ul.slimmenu li a {
     -webkit-transition: background-color 0.5s ease-out;
 }
 ul.slimmenu li a:hover {
-    background-color: #999;
+    background-color: #216dab;
     text-decoration: none;
 }
 ul.slimmenu li .sub-collapser {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.075);
+    /*background: none repeat scroll 0 0 rgba(0, 0, 0, 0.075);*/
     position: absolute;
     right: 0;
     top: 0;
@@ -251,7 +294,7 @@ ul.slimmenu li ul {
     margin: 0;
     list-style-type: none;
 }
-ul.slimmenu li ul li { background-color: #BBB }
+/*ul.slimmenu li ul li { background-color: #BBB }*/
 ul.slimmenu li > ul {
     display: none;
     position: absolute;
@@ -293,9 +336,222 @@ ul.slimmenu.collapsed li > ul {
     position: static;
 }
 /*end slim menu css*/
-    
+
+/*Responsive Menu display */ 
+nav.main{
+    margin-top: 20px;
+    float: none;
+    position: relative;
+    clear: both;
+}
+.main > ul li.hassub ul {
+    opacity: 1;
+    visibility: visible;
+}
+.main > ul#navigation > li {
+    margin-left: 0;
+}
+.main > ul .opened > ul {
+    margin-left: 0;
+}
+/* Primary tabs */
+ul.primary,ul.secondary{
+    border: none;
+    padding: 0;
+    white-space: normal;
+}
+ul.primary li a,ul.secondary li a {
+    background: none;
+    border: none;
+    padding: 7px;
+}
+ul.primary li.active a,ul.secondary li.active a{
+    border: none;
+}
+ul.primary li,ul.secondary li{
+    display: block;
+    background: none;
+    border: none;
+    padding: 8px 0;
+    margin: 4px 0;
+    text-align: center;
+}
+ul.primary li.active a,ul.secondary li.active a{
+    background: none;
+}
+.listing .menu-collapser{
+    width: 50px;
+}
+table.waterstyle th {
+	padding:5px 7px 7px 7px;
+}
+table.waterstyle tr td {
+	padding:4px;
+}
+table.waterstyle tr{
+	padding-left:5px;
+}
+table.waterstyle th:first-child{
+	padding-left:5px;
+}
+table.waterstyle tr td:first-child{
+    padding-left: 5px;
+}
+/* Vertical tabs styling */
+div.vertical-tabs{
+        margin: auto;
+    border: 1px solid #ccc;
+    position: relative;
+}
+.vertical-tabs ul.vertical-tabs-list{
+        width: auto;
+    list-style: none;
+    list-style-image: none;
+    border-top: 1px solid #ccc;
+    padding: 0;
+    position: relative;
+    margin: 0;
+     float: none; 
+}
+.vertical-tabs fieldset.vertical-tabs-pane{
+    margin-top: 15px;
+/*    border: 1px solid #000;*/
+    outline:1px dotted #f26c4f;
+}
+
 }
 
 @media screen and (max-width: 480px) {
-	
+	 /* General rules */
+/*header#header .center {
+    max-width: 98%;
+    }*/
+        
+.center {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+    }
+    
+    /* Search */
+    .search{
+        width: 100%;
+    }
+    .search form{
+        width: 100%;
+    }
+    .search input[type='text']{
+        width: 88%;
+    }
+    .search a{
+        float: none;
+        margin-left: 10%;
+        display: inline-block;
+        padding: 7px 0;
+    }
+    /* /search */
+    /* aside */
+    #slider > aside > .center{
+     max-width: 95%;
+    }
+    /* /aside */
+    .exticons span{
+        width: 70%;
+    }
+    .exticons{
+        width: 100%;
+        margin: 20px 0;
+    }
+    .twocols > *{
+        width: 100%;
+    }
+    .footer-top nav.socials{
+        width: 100%;
+    }
+    div#block-simplenews-10{
+        width: 100%;
+        margin-left: 0;
+    }
+    .footer-top nav.socials > div + div{
+        margin-left: 0px;
+    }
+    .footer-middle .block{
+        /*width: 100%;
+        float: left;*/
+    margin: auto;
+    padding: 84px 5px 0 0;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px;
+    float: none;
+    }
+    .footer-middle .block:first-child{
+        margin-left: auto;
+    }
+    .footer-middle{
+        height: auto;
+    }
+    .footer-top .center.clearfix, .footer-middle .center.clearfix{
+        max-width: 300px;
+    }
+    .footer-middle .firstblock, .footer-middle .thirdblock{
+        /*float: left;*/
+    }
+    .logo{
+        float: none;
+        margin: 0 auto 20px;
+    }
+    .topnav{
+        max-width: 150px;
+        margin: auto;
+    }
+    /* Form elements */
+    .form-type-radio .description, .form-type-checkbox .description{
+        margin-left: 0; 
+    }
+    label,label.option{
+        display: block;
+        margin-left:0;
+        max-width: 80%;
+    }
+    table.field-multiple-table input.form-autocomplete{
+        max-width: 280px;
+    }
+    /* cols */
+    .cols .colspan1, .cols .colspan2,
+    .cols .colspan3, .cols .colspan4,
+    .cols .colspan5, .cols .colspan6, 
+    .cols .colspan7, .cols .colspan8, 
+    .cols .colspan9, .cols .colspan10,
+    .cols .colspan11, .cols .colspan12{
+        width: 100%;
+    }
+    #topWrapper{
+            width: 100%;
+            overflow-x: hidden;
+        }
+    
+}
+
+@media screen and (max-width: 385px) {
+	 /* General rules */
+         .search a{
+        display: block;
+        margin: auto;
+        clear: both;
+        text-align: center;
+         }
+         .search input[type='text']{
+             width: 81%;
+         }
+         .footer-middle .block{
+        
+        max-width: 250px;
+        
+        }
+        #topWrapper{
+            width: 100%;
+            overflow-x: hidden;
+        }
 }

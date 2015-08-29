@@ -24,6 +24,7 @@
   <?php print $scripts; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
+    <div id="topWrapper">
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -33,6 +34,6 @@
   <?php print $page_bottom; ?>
   
   <?php print $page_bottom_script_tags; ?>
-    
+    </div>
 </body>
 </html>

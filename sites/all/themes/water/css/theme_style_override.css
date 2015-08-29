@@ -20,12 +20,20 @@
     width: 34px;
     background: #9cc4e4 url(../img/sprite.png) 0px -34px no-repeat;
     padding:0;
+    border: none;
+    border-radius: 0;
+}
+.search input[type='submit']:hover{
+    background: #9cc4e4 url(../img/sprite.png) 0px -34px no-repeat;
 }
 
 .search input[type='text']{
     width: 300px;
     background: #9cc4e4 none;
     padding-right: 0;
+    border:none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .not-logged-in .topnav #login {
@@ -52,7 +60,10 @@ nav.main{
 }
 
 #slider aside{
-    height: 220px;
+    height: auto;
+    min-height: 220px;
+    max-height: 560px;
+    overflow: hidden;
 }
 
 /*#slider{
@@ -179,7 +190,191 @@ a.check {
 a.check.withgreen {
     background-position: 210px -472px;
 }
-
+/* Changes related to responsive */
+/* Map filters */
 #filterButton{
         display: none;
     }
+    #filterButton a {
+        padding: 6px;
+        background: #666;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+/* Responsive menu sub-collapser */
+.sub-collapser{
+    display: none;
+}
+/*
+Tables Style
+------------------------------------------------------------------ */
+table.waterstyle th a {
+	color: #fff;
+	text-decoration:none;
+}
+
+table.waterstyle {
+
+}
+table.waterstyle th {
+	padding:21px 25px 22px 25px;
+	border:none;
+	color:#fff;
+        text-align: center;
+	background: #2474b4;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2474b4), to(#3a89c9));
+	background: -moz-linear-gradient(top,  #2474b4,  #3a89c9);
+}
+table.waterstyle th:first-child{
+	text-align: left;
+	padding-left:20px;
+}
+table.waterstyle tr:first-child th:first-child{
+	-moz-border-radius-topleft:3px;
+	-webkit-border-top-left-radius:3px;
+	border-top-left-radius:3px;
+}
+table.waterstyle tr:first-child th:last-child{
+	-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+}
+table.waterstyle tr{
+	text-align: center;
+	padding-left:20px;
+}
+table.waterstyle tr td:first-child{
+	text-align: left;
+	padding-left:20px;
+	border-left: 0;
+}
+table.waterstyle tr td {
+	padding:18px;
+	border: none;
+	
+	background: #fff;
+	
+}
+table.waterstyle tr.even td{
+	background: #DFF1FF;
+	
+}
+table.waterstyle tr.even,table.waterstyle tr.odd {
+    border-bottom: 1px solid #A8CEEC;
+}
+table.waterstyle tr:last-child td{
+	border-bottom:0;
+}
+/*---------------------------- end table style */
+/* Nice forms */
+input[type="submit"] {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    display: inline-block;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #fff;
+    background: #2474b4;
+    margin-right: 1.2em;
+}
+input[type="submit"]:hover{
+ background:#3a89c9;
+}
+
+form input[type=text], form input[type=password], form input[type=email], form input[type=url], form input[type=date], form input[type=month], form input[type=time], form input[type=datetime], form input[type=datetime-local], form input[type=week], form input[type=number], form input[type=search], form input[type=tel], form input[type=color], form select, form textarea{
+    padding: .5em .6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 2px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+    max-width: 100%;
+}
+.password-strength{
+    float: none;
+    display: block;
+    max-width: 100%;
+}
+.confirm-parent, .password-parent{
+    max-width: 100%;
+}
+.chosen-container,.form-item .description{
+    max-width: 100%;
+}
+html.js input.form-autocomplete{
+    background-position: 100% 10px;  
+}
+html.js input.throbbing{
+    background-position: 100% -11px; 
+}
+table.field-multiple-table input.form-autocomplete{
+max-width: 90%;
+    width: 100%;
+}
+/* Person profile */
+img.person-photo{
+    width: auto;
+    max-width: 100%;
+    padding: 10px;
+    border: 5px solid #3A89C9;
+    border-radius: 5px;
+}
+div.mail-person{
+    margin: 10px 0;
+}
+div.print-person > span, div.mail-person{
+    text-align: center;
+}
+/* Columns */
+.cols {
+    position: relative;
+    overflow: auto;
+}
+.cols .col{
+    position: relative;
+    float: left;
+    padding: 0 20px;
+}
+.cols .colspan1{
+    width: 8.33%;
+}
+.cols .colspan2{
+    width: 16.66%;
+}
+.cols .colspan3{
+    width: 25%;
+}
+.cols .colspan4{
+    width: 33.33%;
+}
+.cols .colspan5{
+    width: 41.66%;
+}
+.cols .colspan6{
+    width: 50%;
+}
+.cols .colspan7{
+    width: 58.33%;
+}
+.cols .colspan8{
+    width: 66.66%;
+}
+.cols .colspan9{
+    width: 75%;
+}
+.cols .colspan10{
+    width: 83.33%;
+}
+.cols .colspan11{
+    width: 91.66%;
+}
+.cols .colspan12{
+    width: 100%;
+}

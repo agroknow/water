@@ -11,9 +11,11 @@ stylesheets[all][] = css/theme_style_override.css
 stylesheets[all][] = css/accordion.css
 stylesheets[all][] = css/media-queries.css
 ;stylesheets[all][] = css/slimmenu.min.css
+stylesheets[all][] = css/stacktable.css
 
 scripts[] = js/accordion.js
-scripts[] = js/jquery.slimmenu.min.js
+scripts[] = js/jquery.slimmenu.js
+scripts[] = js/stacktable.js
 
 regions[header_top_right] = Header Top Right
 regions[header] = Header
