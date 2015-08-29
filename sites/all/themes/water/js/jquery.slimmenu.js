@@ -90,7 +90,7 @@
                     }
                 }
 
-                $(this).children('ul').hide();
+                //$(this).children('ul').hide();
                 $(this).find('.sub-collapser').removeClass('expanded').children('i').html('&#9660;');
             });
 
@@ -114,7 +114,6 @@
             }
             else
             {
-                $menu.find('li.hassub').find('ul').show();
 //                $menu.find('li').has('ul').on('mouseenter', function()
 //                {
 //                    $(this).find('>ul').stop().slideDown($options.animSpeed, $options.easingEffect);
