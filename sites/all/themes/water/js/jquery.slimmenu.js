@@ -44,6 +44,13 @@
                 e.stopPropagation();
 
                 var $parent_li = $(this).closest('li');
+                var $parent_nav = $(this).closest('nav');
+                
+                if($parent_nav.hasClass('fixed')){
+                    $parent_nav.find('.sub-collapser').not($(this)).removeClass('expanded');
+                    $parent_nav.find('i').html('&#9660;');
+                    $parent_nav.find('>ul li ul').slideUp($options.animSpeed, $options.easingEffect);
+                }
 
                 if ($(this).hasClass('expanded'))
                 {
@@ -55,6 +62,34 @@
                 {
                     $(this).addClass('expanded');
                     $(this).find('i').html('&#9650;');
+                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect);
+                }
+            });
+            $menu.on('click', '.subtrigger', function(e)
+            {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var $curr_subcollapser = $(this).siblings('.sub-collapser');
+                var $parent_li = $(this).closest('li');
+                var $parent_nav = $(this).closest('nav');
+                
+                if($parent_nav.hasClass('fixed')){
+                    $parent_nav.find('.sub-collapser').not($curr_subcollapser).removeClass('expanded');
+                    $parent_nav.find('i').html('&#9660;');
+                    $parent_nav.find('>ul li ul').slideUp($options.animSpeed, $options.easingEffect);
+                }
+
+                if ($curr_subcollapser.hasClass('expanded'))
+                {
+                    $curr_subcollapser.removeClass('expanded');
+                    $curr_subcollapser.find('i').html('&#9660;');
+                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect);
+                }
+                else
+                {
+                    $curr_subcollapser.addClass('expanded');
+                    $curr_subcollapser.find('i').html('&#9650;');
                     $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect);
                 }
             });
