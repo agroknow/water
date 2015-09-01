@@ -121,5 +121,16 @@ oWaterJQuery(document).ready(function() {
     });
     
     oWaterJQuery('table.views-table,table.sticky-enabled,table.sticky-header').addClass('waterstyle');
-    
+       
+       var menuTopOffset = oWaterJQuery('nav.main .menu-collapser').parent().offset().top;
+       var menuElement = oWaterJQuery('nav.main .menu-collapser').parent();
+       oWaterJQuery(window).scroll(function () {
+       if ((oWaterJQuery(window).scrollTop() > menuTopOffset) && !menuElement.hasClass('fixed')) {
+            menuElement.addClass('fixed');
+       } else if((oWaterJQuery(window).scrollTop() < menuTopOffset) && menuElement.hasClass('fixed')) {
+            menuElement.removeClass('fixed');
+       }
+    });
 });
+
+
