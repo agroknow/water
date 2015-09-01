@@ -1,5 +1,13 @@
 /* 960 and under */
 @media screen and (max-width: 960px) {
+   
+    /*Fonts*/
+    .basic-wrapper h1{
+        font-size: 3.4em;
+    }
+    .basic-wrapper h2{
+        font-size: 1.7em;
+    }
     /* General rules */
     .center {
         display: block;
@@ -55,6 +63,28 @@
 }
 /* 768 and under */
 @media screen and (max-width: 768px) {
+     body { font-size: small; }
+/*    .basic-wrapper h1{
+        font-size: 3em;
+    }
+    .basic-wrapper h2{
+        text-align: center;
+        font-size: 1.3em;
+    }*/
+    /* Fixed navigation */
+    nav.main.fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #333;
+        color: #fff;
+        margin: 0;
+        z-index: 9999;
+    }
+    .main.fixed > ul ul, .main.fixed ul.slimmenu li a:hover {
+        background: none;
+    }
     .sub-collapser{
         display: block;
     }
@@ -154,9 +184,6 @@
     }
     section.sidebars div.region-content{
         width: 100%;
-    }
-    .basic-wrapper h2{
-        text-align: center;
     }
     /* booktree */
     #block-system-main > div > ul.booktree{
@@ -293,7 +320,7 @@
         margin-right: -0.25em;
     }
     ul.slimmenu li .sub-collapser > i {
-        color: #333;
+        color: #fff;
         font-size: 18px;
         display: inline-block;
         vertical-align: middle;
@@ -430,6 +457,9 @@
 }
 
 @media screen and (max-width: 480px) {
+    .basic-wrapper h1{
+        font-size: 2.7em;
+    }
     /* General rules */
     /*header#header .center {
         max-width: 98%;
@@ -530,7 +560,7 @@
         height: 375px;
     }
     .page-persons #blocks{
-       padding: 20px 4px;; 
+        padding: 20px 4px;; 
     }
     table.waterstyle th{
         padding: 5px 4px 7px 4px;

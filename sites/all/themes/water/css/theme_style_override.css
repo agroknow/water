@@ -378,3 +378,7 @@ div.print-person > span, div.mail-person{
 .cols .colspan12{
     width: 100%;
 }
+/* Ul align */
+ul{
+    list-style-position: inside;
+}
