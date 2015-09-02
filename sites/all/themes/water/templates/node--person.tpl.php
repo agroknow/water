@@ -89,7 +89,7 @@
     <?php endif; ?>
     <?php print render($title_suffix); ?>
 
-    <?php if ($display_submitted): ?>
+    <?php if (false): ?>
         <div class="submitted">
             <?php print $submitted; ?>
         </div>
@@ -103,6 +103,7 @@
         hide($content['field_profile_photo']);
         hide($content['print_links']);
         hide($content['field_person_email_address']);
+        hide($content['field_gender']);
         ?>
         <div class="cols">
             <div class="col colspan5 person-photo-container">
@@ -125,7 +126,7 @@
         </div>
     </div>
 
-    <!--<?php print render($content['links']); ?>-->
+    <!--<?php //print render($content['links']); ?>-->
 
     <?php print render($content['comments']); ?>
 

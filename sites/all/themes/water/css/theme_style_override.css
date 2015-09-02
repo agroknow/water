@@ -267,7 +267,8 @@ table.waterstyle tr:last-child td{
 	border-bottom:0;
 }
 table.s-table{
-    width: 100%;
+    max-width: 100%;
+    width: auto;
 }
 /*---------------------------- end table style */
 /* Nice forms */
