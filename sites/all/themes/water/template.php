@@ -92,6 +92,15 @@ function water_preprocess_page(&$vars) {
 }
 
 /**
+ * Preprocess node
+ */
+function water_preprocess_node(&$variables) {
+    if(arg(0) == 'taxonomy'){
+        $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__taxonomy';
+    }
+}
+
+/**
  * Preprocess variables for html.tpl.php
  */
 function water_preprocess_html(&$variables) {
