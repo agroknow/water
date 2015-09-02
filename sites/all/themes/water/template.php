@@ -108,7 +108,9 @@ function water_preprocess_html(&$variables) {
         '<script>var oWaterJQuery = $.noConflict(true);</script>'.
         '<script src="'.base_path() . path_to_theme().'/js/main.js"></script>'.
         '<script>
+            if(jQuery(window).width() <= 768) { // stack table below 768
             jQuery(\'table.s-table\').not(\'table.field-multiple-table,form#system-modules table\').stacktable();
+            }
             //jQuery(\'table.views-table\').stacktable();
             jQuery(\'#navigation\').slimmenu(
             {
@@ -273,7 +275,9 @@ function water_breadcrumb($variables){
     }
     return $crumbs;
 }
-
+/**
+ * Add a class to system tables for stacktable script.
+ */
 function water_preprocess_table(&$variables) {
   $variables['attributes']['class'][] = 's-table';
 }
