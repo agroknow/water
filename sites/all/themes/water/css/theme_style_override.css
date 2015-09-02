@@ -266,6 +266,9 @@ table.waterstyle tr.even,table.waterstyle tr.odd {
 table.waterstyle tr:last-child td{
 	border-bottom:0;
 }
+table.s-table{
+    width: 100%;
+}
 /*---------------------------- end table style */
 /* Nice forms */
 input[type="submit"] {
