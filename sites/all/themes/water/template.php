@@ -81,11 +81,6 @@ function water_preprocess_page(&$vars) {
     ));
       
       }
-      if($vars['node']->type == 'book'){
-      //create a variable to hold rich title field added to specific content types
-      $view = node_view($vars['node']);
-      $vars['rich_title'] = render($view['field_rich_title']);
-      }
   }
     
         
