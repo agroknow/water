@@ -80,7 +80,8 @@
  */
 if(isset($content['field_person_geolocation'])) {
 $content['field_person_geolocation']['#title'] = 'Location';
-$content['field_person_geolocation'][0]['#markup'] = explode('|', $content['field_person_geolocation'][0]['#markup'])[0];
+list($part1,$part2) = explode('|', $content['field_person_geolocation'][0]['#markup']);
+$content['field_person_geolocation'][0]['#markup'] = $part1;
 }
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
