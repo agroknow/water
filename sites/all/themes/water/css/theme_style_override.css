@@ -342,7 +342,7 @@ div.print-person > span, div.mail-person{
 /* Columns */
 .cols {
     position: relative;
-    overflow: auto;
+    overflow: hidden;
 }
 .cols .col{
     position: relative;
@@ -388,4 +388,8 @@ div.print-person > span, div.mail-person{
 /* Ul align */
 ul{
     list-style-position: inside;
+}
+
+.view-taxonomy-term .node-person {
+    margin-bottom: 15px;
 }
