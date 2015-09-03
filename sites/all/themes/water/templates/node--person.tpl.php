@@ -78,6 +78,10 @@
  *
  * @ingroup themeable
  */
+if(isset($content['field_person_geolocation'])) {
+$content['field_person_geolocation']['#title'] = 'Location';
+$content['field_person_geolocation'][0]['#markup'] = explode('|', $content['field_person_geolocation'][0]['#markup'])[0];
+}
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -104,15 +108,16 @@
         hide($content['print_links']);
         hide($content['field_person_email_address']);
         hide($content['field_gender']);
+        hide($content['field_initials']);
         ?>
         <div class="cols">
             <div class="col colspan5 person-photo-container">
                     <?php $gender = $node->field_gender ? $node->field_gender['und'][0]['tid'] : 17; ?>
                     <img class="person-photo" src="<?php print 
-                    $node->field_profile_photo['und']['0']['uri'] ? file_create_url($node->field_profile_photo['und']['0']['uri']) : base_path() . path_to_theme() . '/img/avatar_' . $gender . '.jpg'  ?>" alt="<?php print $node->title ?>" />
+                    isset($node->field_profile_photo['und']['0']['uri']) ? file_create_url($node->field_profile_photo['und']['0']['uri']) : base_path() . path_to_theme() . '/img/avatar_' . $gender . '.jpg'  ?>" alt="<?php print $node->title ?>" />
+                    <?php if(isset($node->field_person_email_address['und'][0]['value'])) { ?>
                     <div class="mail-person"><a href="mailto:<?php print $node->field_person_email_address['und'][0]['value'] ?>" >Send email</a></div>
-                    <div class="print-person"><?php print render($content['print_links']); ?></div>
-                        
+                    <?php } ?>
             </div>
             <div class="col colspan7">
                 <div class="field field-type-text field-label-above">

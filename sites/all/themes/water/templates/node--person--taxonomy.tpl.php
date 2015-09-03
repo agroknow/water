@@ -78,17 +78,14 @@
  *
  * @ingroup themeable
  */
+if(isset($content['field_person_geolocation'])) {
+$content['field_person_geolocation']['#title'] = 'Location';
+$content['field_person_geolocation'][0]['#markup'] = explode('|', $content['field_person_geolocation'][0]['#markup'])[0];
+}
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
     <?php print $user_picture; ?>
-
-    <?php print render($title_prefix); ?>
-    <?php if (!$page): ?>
-        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title . ' ' . $node->field_first_name['und'][0]['value']; ?></a></h2>
-    <?php endif; ?>
-    <?php print render($title_suffix); ?>
-
     <?php if (false): ?>
         <div class="submitted">
             <?php print $submitted; ?>
@@ -104,10 +101,29 @@
         hide($content['print_links']);
         hide($content['field_person_email_address']);
         hide($content['field_gender']);
+        hide($content['field_initials']);
+        hide($content['field_first_name']);
         ?>
-        <?php $gender = $node->field_gender ? $node->field_gender['und'][0]['tid'] : 17; ?>
-        <img class="person-photo" src="<?php print 
-        $node->field_profile_photo['und']['0']['uri'] ? file_create_url($node->field_profile_photo['und']['0']['uri']) : base_path() . path_to_theme() . '/img/avatar_' . $gender . '.jpg'  ?>" alt="<?php print $node->title ?>" />
+        <div class="cols">
+            <div class="col colspan5 person-photo-container">
+                    <?php $gender = $node->field_gender ? $node->field_gender['und'][0]['tid'] : 17; ?>
+                    <img class="person-photo" src="<?php print 
+                    isset($node->field_profile_photo['und']['0']['uri']) ? file_create_url($node->field_profile_photo['und']['0']['uri']) : base_path() . path_to_theme() . '/img/avatar_' . $gender . '.jpg'  ?>" alt="<?php print $node->title ?>" />
+                    <?php if(isset($node->field_person_email_address['und'][0]['value'])) { ?>
+                    <div class="mail-person"><a href="mailto:<?php print $node->field_person_email_address['und'][0]['value'] ?>" >Send email</a></div>
+                    <?php } ?>
+            </div>
+            <div class="col colspan7">
+                <?php print render($title_prefix); ?>
+                <?php if (!$page): ?>
+                <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?>, <?php print render($content['field_first_name'][0]['#markup']); ?></a></h2>
+                <?php endif; ?>
+                <?php print render($title_suffix); ?>
+                <?php
+                print render($content);
+                ?>
+            </div>
+        </div>
     </div>
 
     <!--<?php //print render($content['links']); ?>-->
