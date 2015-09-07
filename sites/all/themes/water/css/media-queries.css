@@ -63,6 +63,11 @@
 }
 /* 768 and under */
 @media screen and (max-width: 768px) {
+    img{
+        width: auto;
+        max-width: 100%;
+        height:auto;
+    }
      body { font-size: small; }
 /*    .basic-wrapper h1{
         font-size: 3em;
