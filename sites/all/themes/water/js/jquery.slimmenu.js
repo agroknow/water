@@ -56,13 +56,17 @@
                 {
                     $(this).removeClass('expanded');
                     $(this).find('i').html('&#9660;');
-                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect);
+                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
                 }
                 else
                 {
                     $(this).addClass('expanded');
                     $(this).find('i').html('&#9650;');
-                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect);
+                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
                 }
             });
             $menu.on('click', '.subtrigger', function(e)
@@ -84,24 +88,40 @@
                 {
                     $curr_subcollapser.removeClass('expanded');
                     $curr_subcollapser.find('i').html('&#9660;');
-                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect);
+                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
                 }
                 else
                 {
                     $curr_subcollapser.addClass('expanded');
                     $curr_subcollapser.find('i').html('&#9650;');
-                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect);
+                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
                 }
             });
 
             $menu_collapser.on('click', '.collapse-button', function(e)
             {
                 e.preventDefault();
-                $menu.slideToggle($options.animSpeed, $options.easingEffect);
+                $menu.slideToggle($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($menu.parent());
+                });
             });
 
             this.resizeMenu({ data: { el: this.element, options: this.options } });
             $(window).on('resize', { el: this.element, options: this.options }, this.resizeMenu);
+            
+            function checkScroll($navb)
+            {   
+                if( $navb.height() > $(window).height())
+                {
+                    $navb.css({"overflow-y":"scroll","bottom":"0"});
+                } else {
+                    $navb.css({"overflow-y":"hidden","bottom":"auto"});
+                }
+            }
         },
 
         resizeMenu: function(event)
