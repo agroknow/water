@@ -106,7 +106,14 @@
             {
                 e.preventDefault();
                 $menu.slideToggle($options.animSpeed, $options.easingEffect, function(){
-                    checkScroll($menu.parent());
+                    if(!$menu.is(':visible')){
+                        $menu.parent().removeClass('scroll');
+                    } else {
+                       if( 48 + $menu.height() > $(window).height())
+                        {
+                            $menu.parent().addClass('scroll');
+                        } 
+                    }
                 });
             });
 
@@ -115,11 +122,11 @@
             
             function checkScroll($navb)
             {   
-                if( $navb.height() > $(window).height())
+                if( 48 + $menu.height() > $(window).height())
                 {
-                    $navb.css({"overflow-y":"scroll","bottom":"0"});
+                    $navb.addClass('scroll');
                 } else {
-                    $navb.css({"overflow-y":"hidden","bottom":"auto"});
+                    $navb.removeClass('scroll');
                 }
             }
         },
