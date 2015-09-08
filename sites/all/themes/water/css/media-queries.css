@@ -227,7 +227,7 @@
     }
     #markers-legend{
         display: none;
-        z-index: 999;
+        z-index: 999 !important;
     }
     #filterButton{
         display: block;
