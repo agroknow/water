@@ -378,3 +378,32 @@ div.print-person > span, div.mail-person{
 .cols .colspan12{
     width: 100%;
 }
+/* block 17 help popup */
+#block-block-17{
+    position: fixed;
+    left: 100%;
+    top: 50%;  
+}
+#block-block-17 a{ 
+    background: #E3654A;
+    padding: 5px;
+    border: 2px solid white;
+    border-top: none;
+    font-weight: bold;
+    color: white !important;
+    display: block;
+    white-space: nowrap;
+    text-decoration: none !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 5px 5px;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: top left;
+    -moz-transform: rotate(90deg);
+    -moz-transform-origin: top left;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: top left;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
