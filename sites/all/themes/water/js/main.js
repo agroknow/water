@@ -39,9 +39,15 @@ oWaterJQuery(document).ready(function() {
     
     oWaterJQuery(".hassub").on("click", "a.subtrigger", function(e) {
         e.preventDefault();
-        oWaterJQuery(this).parent().toggleClass("opened");
+        $par = oWaterJQuery(this).parent();
+        oWaterJQuery(this).closest('ul').find('.hassub.opened').removeClass('opened');
+        if($par.hasClass("opened")) {
+            $par.removeClass('opened');
+        } else {
+            $par.addClass('opened');
+        }
     });
-    
+    if(!isTouchDevice()) {
     var inP = 0, inC = 0;
     oWaterJQuery(".hassub").on("mouseenter", "a.subtrigger", function(){
         inP = 1;
@@ -55,6 +61,9 @@ oWaterJQuery(document).ready(function() {
             }
         }, 500);
     });
+        
+    }
+    
     oWaterJQuery(".hassub").on("mouseenter", "ul", function(){
         inC = 1;
     }).on("mouseleave", "ul", function(){
@@ -133,4 +142,10 @@ oWaterJQuery(document).ready(function() {
     });
 });
 
+function isTouchDevice(){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        return true;
+    }
+    return false;
+}
 
