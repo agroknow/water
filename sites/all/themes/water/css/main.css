@@ -95,7 +95,7 @@ h2 {
     display: block;
     width: 223px;
     height: 79px;
-    margin-top: 0:px;
+    margin-top: 0px;
     background: url(../img/logo.png) 0 0 no-repeat
 }
 
@@ -1028,12 +1028,9 @@ article.event section .more {
         text-decoration:underline;
 }
 
-#edit-field-summary-und-0-format {
+#edit-field-summary-und-0-format, #edit-body-und-0-format, #edit-field-rich-title-und-0-format{
 	visibility:hidden;
-}
-
-#edit-body-und-0-format {
-	visibility:hidden;
+        height: 0;
 }
 
 .form-item-mlid .chosen-processed {
