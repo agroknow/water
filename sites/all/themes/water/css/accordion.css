@@ -24,6 +24,7 @@ ul.booktree > li.booktree, .book-navigation li.leaf, .book-navigation li.collaps
   padding: .75em;
   border-radius: 0.15em;
   transition: background .3s ease;
+  position: relative;
 }
 ul.booktree > li.booktree:hover, .book-navigation li.leaf:hover, .book-navigation li.collapsed:hover {
   background: rgba(58, 137, 201, 0.75);
@@ -47,9 +48,9 @@ li.booktree.parent.active:after {
   height: 0;
   border: solid 8px;
   border-color: #fff transparent transparent transparent;
-  float: right;
-  top: 10px;
-  position: relative;
+  right: 11px;
+  top: 14px;
+  position: absolute;
 }
 li.booktree.parent:after {
   content: "";
@@ -58,7 +59,7 @@ li.booktree.parent:after {
   height: 0;
   border: solid 8px;
   border-color: transparent #fff transparent transparent;
-  float: right;
-  top: 6px;
-  position: relative;
+  right: 11px;
+  top: 14px;
+  position: absolute;
 }

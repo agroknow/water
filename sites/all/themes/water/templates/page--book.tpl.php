@@ -1,3 +1,4 @@
+<?php $rich_title = field_view_value('node', $node, 'field_rich_title', $node->field_rich_title['und'][0]); ?>
 <header id="header">
     <div class="center clearfix">
 <!-- *****

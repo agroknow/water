@@ -23,7 +23,9 @@
  */
 ?>
 <?php 
-$pattern = '/\(.*?\)/';
-$output = preg_replace($pattern, '', $output);
+//$pattern = '/\(.*?\)/';
+if($output) {
+list($output,$dummy) = explode('|', $output);
+}
 print $output;
 ?>

@@ -87,13 +87,6 @@ $content['field_person_geolocation'][0]['#markup'] = $part1;
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
     <?php print $user_picture; ?>
-
-    <?php print render($title_prefix); ?>
-    <?php if (!$page): ?>
-        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-    <?php endif; ?>
-    <?php print render($title_suffix); ?>
-
     <?php if (false): ?>
         <div class="submitted">
             <?php print $submitted; ?>
@@ -110,6 +103,7 @@ $content['field_person_geolocation'][0]['#markup'] = $part1;
         hide($content['field_person_email_address']);
         hide($content['field_gender']);
         hide($content['field_initials']);
+        hide($content['field_first_name']);
         ?>
         <div class="cols">
             <div class="col colspan5 person-photo-container">
@@ -121,10 +115,11 @@ $content['field_person_geolocation'][0]['#markup'] = $part1;
                     <?php } ?>
             </div>
             <div class="col colspan7">
-                <div class="field field-type-text field-label-above">
-                    <div class="field-label">Last name:&nbsp;</div>
-                    <div class="field-item"><?php print $node->title ?></div>
-                </div>
+                <?php print render($title_prefix); ?>
+                <?php if (!$page): ?>
+                <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?>, <?php print render($content['field_first_name'][0]['#markup']); ?></a></h2>
+                <?php endif; ?>
+                <?php print render($title_suffix); ?>
                 <?php
                 print render($content);
                 ?>

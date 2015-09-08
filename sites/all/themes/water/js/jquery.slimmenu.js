@@ -44,29 +44,91 @@
                 e.stopPropagation();
 
                 var $parent_li = $(this).closest('li');
+                var $parent_nav = $(this).closest('nav');
+                
+                if($parent_nav.hasClass('fixed')){
+                    $parent_nav.find('.sub-collapser').not($(this)).removeClass('expanded');
+                    $parent_nav.find('i').html('&#9660;');
+                    $parent_nav.find('>ul li ul').slideUp($options.animSpeed, $options.easingEffect);
+                }
 
                 if ($(this).hasClass('expanded'))
                 {
                     $(this).removeClass('expanded');
                     $(this).find('i').html('&#9660;');
-                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect);
+                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
                 }
                 else
                 {
                     $(this).addClass('expanded');
                     $(this).find('i').html('&#9650;');
-                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect);
+                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
+                }
+            });
+            $menu.on('click', '.subtrigger', function(e)
+            {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var $curr_subcollapser = $(this).siblings('.sub-collapser');
+                var $parent_li = $(this).closest('li');
+                var $parent_nav = $(this).closest('nav');
+                
+                if($parent_nav.hasClass('fixed')){
+                    $parent_nav.find('.sub-collapser').not($curr_subcollapser).removeClass('expanded');
+                    $parent_nav.find('i').html('&#9660;');
+                    $parent_nav.find('>ul li ul').slideUp($options.animSpeed, $options.easingEffect);
+                }
+
+                if ($curr_subcollapser.hasClass('expanded'))
+                {
+                    $curr_subcollapser.removeClass('expanded');
+                    $curr_subcollapser.find('i').html('&#9660;');
+                    $parent_li.find('>ul').slideUp($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
+                }
+                else
+                {
+                    $curr_subcollapser.addClass('expanded');
+                    $curr_subcollapser.find('i').html('&#9650;');
+                    $parent_li.find('>ul').slideDown($options.animSpeed, $options.easingEffect, function(){
+                    checkScroll($parent_nav);
+                });
                 }
             });
 
             $menu_collapser.on('click', '.collapse-button', function(e)
             {
                 e.preventDefault();
-                $menu.slideToggle($options.animSpeed, $options.easingEffect);
+                $menu.slideToggle($options.animSpeed, $options.easingEffect, function(){
+                    if(!$menu.is(':visible')){
+                        $menu.parent().removeClass('scroll');
+                    } else {
+                       if( 48 + $menu.height() > $(window).height())
+                        {
+                            $menu.parent().addClass('scroll');
+                        } 
+                    }
+                });
             });
 
             this.resizeMenu({ data: { el: this.element, options: this.options } });
             $(window).on('resize', { el: this.element, options: this.options }, this.resizeMenu);
+            
+            function checkScroll($navb)
+            {   
+                if( 48 + $menu.height() > $(window).height())
+                {
+                    $navb.addClass('scroll');
+                } else {
+                    $navb.removeClass('scroll');
+                }
+            }
         },
 
         resizeMenu: function(event)
@@ -90,7 +152,7 @@
                     }
                 }
 
-                $(this).children('ul').hide();
+                //$(this).children('ul').hide();
                 $(this).find('.sub-collapser').removeClass('expanded').children('i').html('&#9660;');
             });
 
@@ -114,7 +176,6 @@
             }
             else
             {
-                $menu.find('li.hassub').find('ul').show();
 //                $menu.find('li').has('ul').on('mouseenter', function()
 //                {
 //                    $(this).find('>ul').stop().slideDown($options.animSpeed, $options.easingEffect);

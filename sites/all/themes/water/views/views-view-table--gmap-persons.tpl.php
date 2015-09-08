@@ -58,10 +58,10 @@ foreach ($rows as $row_count => $row){
     //set default coords
         $match = '-1,-1';
     //get string between ()
-        if(preg_match('/\(.*\)/', $row[$geolocationIdx], $matches)){
+        //if(preg_match('/\(.*\)/', $row[$geolocationIdx], $matches)){
     //remove chars () if match returned
-            $match = substr($matches[0], 1, strlen($matches[0])-2);
-        }
+            list($match_no_use,$match) = explode('|', $row[$geolocationIdx]);
+        //}
     //split coordinates
         $coordinates = explode(",", $match);
     //split groups

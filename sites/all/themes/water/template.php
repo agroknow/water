@@ -81,11 +81,6 @@ function water_preprocess_page(&$vars) {
     ));
       
       }
-      if($vars['node']->type == 'book'){
-      //create a variable to hold rich title field added to specific content types
-      $view = node_view($vars['node']);
-      $vars['rich_title'] = render($view['field_rich_title']);
-      }
   }
     
         
@@ -94,6 +89,15 @@ function water_preprocess_page(&$vars) {
     //var_dump(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS));
     
 //    $vars['contact_form'] = drupal_render(drupal_get_form('contact_site_form'));
+}
+
+/**
+ * Preprocess node
+ */
+function water_preprocess_node(&$variables) {
+    if(arg(0) == 'taxonomy'){
+        $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__taxonomy';
+    }
 }
 
 /**
@@ -108,7 +112,9 @@ function water_preprocess_html(&$variables) {
         '<script>var oWaterJQuery = $.noConflict(true);</script>'.
         '<script src="'.base_path() . path_to_theme().'/js/main.js"></script>'.
         '<script>
+            if(jQuery(window).width() <= 768) { // stack table below 768
             jQuery(\'table.s-table\').not(\'table.field-multiple-table,form#system-modules table\').stacktable();
+            }
             //jQuery(\'table.views-table\').stacktable();
             jQuery(\'#navigation\').slimmenu(
             {
@@ -273,7 +279,9 @@ function water_breadcrumb($variables){
     }
     return $crumbs;
 }
-
+/**
+ * Add a class to system tables for stacktable script.
+ */
 function water_preprocess_table(&$variables) {
   $variables['attributes']['class'][] = 's-table';
 }
