@@ -113,7 +113,7 @@ function jira_issue_collector_admin_settings_form_validate($form, &$form_state) 
   // https://jira-instance/some-path/com.atlassian.jira.collector.plugin.jira
   // -issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin
   // .jira-issue-collector-plugin:issuecollector.js?collectorId=abcd1234.
-  if (preg_match('/"(http[^"]+(\?|\&)collectorId=[0-9a-f]+)"/im', $code, $matches) && valid_url($matches[1], TRUE)) {
+  if (preg_match('/"(http[^"]+\&collectorId=[0-9a-f]+)"/im', $code, $matches) && valid_url($matches[1], TRUE)) {
     $form_state['values']['jira_issue_collector_url'] = $matches[1];
   }
   else {
