@@ -95,7 +95,7 @@ h2 {
     display: block;
     width: 223px;
     height: 79px;
-    margin-top: 0:px;
+    margin-top: 0px;
     background: url(../img/logo.png) 0 0 no-repeat
 }
 
@@ -166,12 +166,14 @@ nav.topnav a.ir {
     min-width: 152px;
     opacity: 0;
     visibility: hidden;
+    display: block;
     transition: margin-left 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
 }
 .main > ul .opened > ul {
     margin-left: -8px;
     opacity: 1;
     visibility: visible;
+    display: block;
 }
 .main > ul ul li {
     margin: 10px 0;
@@ -966,7 +968,7 @@ article.event section .more {
 	font-family:  sans-serif;
         font-size:14px;
         color:rgb(37,37,37);
-        line-height: 22.3999996185303px;
+        line-height: 22.4px;
 }
 
 .node-type-book .region-content .field-name-field-summary a {
@@ -1026,12 +1028,9 @@ article.event section .more {
         text-decoration:underline;
 }
 
-#edit-field-summary-und-0-format {
+#edit-field-summary-und-0-format, #edit-body-und-0-format, #edit-field-rich-title-und-0-format{
 	visibility:hidden;
-}
-
-#edit-body-und-0-format {
-	visibility:hidden;
+        height: 0;
 }
 
 .form-item-mlid .chosen-processed {

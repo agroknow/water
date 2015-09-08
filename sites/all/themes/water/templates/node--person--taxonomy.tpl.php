@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a node.
@@ -79,38 +78,57 @@
  *
  * @ingroup themeable
  */
+if(isset($content['field_person_geolocation'])) {
+$content['field_person_geolocation']['#title'] = 'Location';
+list($part1,$part2) = explode('|', $content['field_person_geolocation'][0]['#markup']);
+$content['field_person_geolocation'][0]['#markup'] = $part1;
+}
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php print $user_picture; ?>
+    <?php print $user_picture; ?>
+    <?php if (false): ?>
+        <div class="submitted">
+            <?php print $submitted; ?>
+        </div>
+    <?php endif; ?>
 
-  <?php print render($title_prefix); ?>
-  <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
-
-  <?php if ($display_submitted): ?>
-    <div class="submitted">
-      <?php print $submitted; ?>
+    <div class="content"<?php print $content_attributes; ?>>
+        <?php
+        // We hide the comments and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        hide($content['field_profile_photo']);
+        hide($content['print_links']);
+        hide($content['field_person_email_address']);
+        hide($content['field_gender']);
+        hide($content['field_initials']);
+        hide($content['field_first_name']);
+        ?>
+        <div class="cols">
+            <div class="col colspan5 person-photo-container">
+                    <?php $gender = $node->field_gender ? $node->field_gender['und'][0]['tid'] : 17; ?>
+                    <img class="person-photo" src="<?php print 
+                    isset($node->field_profile_photo['und']['0']['uri']) ? file_create_url($node->field_profile_photo['und']['0']['uri']) : base_path() . path_to_theme() . '/img/avatar_' . $gender . '.jpg'  ?>" alt="<?php print $node->title ?>" />
+                    <?php if(/*isset($node->field_person_email_address['und'][0]['value'])*/false) { ?>
+                    <div class="mail-person"><a href="mailto:<?php print $node->field_person_email_address['und'][0]['value'] ?>" >Send email</a></div>
+                    <?php } ?>
+            </div>
+            <div class="col colspan7">
+                <?php print render($title_prefix); ?>
+                <?php if (!$page): ?>
+                <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?>, <?php print render($content['field_first_name'][0]['#markup']); ?></a></h2>
+                <?php endif; ?>
+                <?php print render($title_suffix); ?>
+                <?php
+                print render($content);
+                ?>
+            </div>
+        </div>
     </div>
-  <?php endif; ?>
 
-  <div class="content"<?php print $content_attributes; ?>>
-    <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      hide($content['field_rich_title']);
-      print render($content);
-      $bnav = '';
-      $bnav .= booktree_mostra_figli($node->book['mlid'], $node->nid, $node->title, 1, 3, 500, $node->book['mlid']);
-      print render($bnav);
-    ?>
-  </div>
+    <!--<?php //print render($content['links']); ?>-->
 
-  <!--<?php //print render($content['links']); ?>-->
-
-  <?php print render($content['comments']); ?>
+    <?php print render($content['comments']); ?>
 
 </div>

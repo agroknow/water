@@ -23,6 +23,7 @@
 <?php
 //Load gmap3_tools.inc file
 module_load_include('inc', 'gmap3_tools');
+print '<div id="filterButton"><a href="javascript:void(0)">Filters</a></div>';
 //add html element 'organization-gmap-canvas' in template file that will hold Google map          
 print '<div id="organization-gmap-canvas"><div class="ajax-progress" style="width:100%;margin-left:49%;"><div class="throbber"></div></div></div>';
 //add html element 'markers-legend' in template file that will hold Google map's legend
@@ -57,10 +58,10 @@ foreach ($rows as $row_count => $row){
     //set default coords
         $match = '-1,-1';
     //get string between ()
-        if(preg_match('/\(.*\)/', $row[$geolocationIdx], $matches)){
+        //if(preg_match('/\(.*\)/', $row[$geolocationIdx], $matches)){
     //remove chars () if match returned
-            $match = substr($matches[0], 1, strlen($matches[0])-2);
-        }
+            list($match_no_use,$match) = explode('|', $row[$geolocationIdx]);
+        //}
     //split coordinates
         $coordinates = explode(",", $match);
     //split groups

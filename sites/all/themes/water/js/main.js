@@ -39,9 +39,15 @@ oWaterJQuery(document).ready(function() {
     
     oWaterJQuery(".hassub").on("click", "a.subtrigger", function(e) {
         e.preventDefault();
-        oWaterJQuery(this).parent().toggleClass("opened");
+        $par = oWaterJQuery(this).parent();
+        oWaterJQuery(this).closest('ul').find('.hassub.opened').removeClass('opened');
+        if($par.hasClass("opened")) {
+            $par.removeClass('opened');
+        } else {
+            $par.addClass('opened');
+        }
     });
-    
+    if(!isTouchDevice()) {
     var inP = 0, inC = 0;
     oWaterJQuery(".hassub").on("mouseenter", "a.subtrigger", function(){
         inP = 1;
@@ -55,6 +61,9 @@ oWaterJQuery(document).ready(function() {
             }
         }, 500);
     });
+        
+    }
+    
     oWaterJQuery(".hassub").on("mouseenter", "ul", function(){
         inC = 1;
     }).on("mouseleave", "ul", function(){
@@ -115,4 +124,28 @@ oWaterJQuery(document).ready(function() {
         });
     });
     
+    oWaterJQuery('#block-system-main').on('click', '#filterButton', function(){
+        var docwidth= oWaterJQuery(document).width(); // center legend before show in case window resized
+        oWaterJQuery('#markers-legend').css('left',docwidth/2 -115).slideToggle();
+    });
+    
+    oWaterJQuery('table.views-table,table.sticky-enabled,table.sticky-header').addClass('waterstyle');
+       
+       var menuTopOffset = oWaterJQuery('nav.main .menu-collapser').parent().offset().top;
+       var menuElement = oWaterJQuery('nav.main .menu-collapser').parent();
+       oWaterJQuery(window).scroll(function () {
+       if ((oWaterJQuery(window).scrollTop() > menuTopOffset) && !menuElement.hasClass('fixed')) {
+            menuElement.addClass('fixed');
+       } else if((oWaterJQuery(window).scrollTop() < menuTopOffset) && menuElement.hasClass('fixed')) {
+            menuElement.removeClass('fixed');
+       }
+    });
 });
+
+function isTouchDevice(){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        return true;
+    }
+    return false;
+}
+
