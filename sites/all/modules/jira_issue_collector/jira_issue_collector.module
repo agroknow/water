@@ -57,6 +57,7 @@ function jira_issue_collector_init() {
   global $user;
 
   $url = variable_get('jira_issue_collector_url', FALSE);
+  
   // 1. Check if a JIRA Issue Collector URL has been determined.
   // 2. Track page views based on visibility value.
   // 3. Check if we should track the currently active user's role.
@@ -83,8 +84,8 @@ function _jira_issue_collector_visibility_roles($account) {
   // Filter the array to remove any non-selected roles. They will appear as
   // entries with value set to 0.
   $roles = array_filter(variable_get('jira_issue_collector_roles', array()));
-
-  if (!empty($roles)) {
+  
+if (!empty($roles)) {
     // One or more roles are selected for tracking.
     foreach (array_keys($account->roles) as $rid) {
       // Is the current user a member of one role enabled for tracking?
