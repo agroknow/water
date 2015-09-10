@@ -40,12 +40,9 @@ oWaterJQuery(document).ready(function() {
     oWaterJQuery(".hassub").on("click", "a.subtrigger", function(e) {
         e.preventDefault();
         $par = oWaterJQuery(this).parent();
-        oWaterJQuery(this).closest('ul').find('.hassub.opened').removeClass('opened');
-        if($par.hasClass("opened")) {
-            $par.removeClass('opened');
-        } else {
-            $par.addClass('opened');
-        }
+        oWaterJQuery(this).closest('ul').find('.hassub.opened').not($par).removeClass('opened');
+        $par.toggleClass('opened');
+        
     });
     if(!isTouchDevice()) {
     var inP = 0, inC = 0;

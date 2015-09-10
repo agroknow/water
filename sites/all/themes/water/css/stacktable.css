@@ -15,7 +15,7 @@
   section.sidebars div.region-content .stacktable.large-only { display: none; }
   section.sidebars div.region-content .stacktable.small-only { display: table; }
 }
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .stacktable.large-only { display: none; }
   .stacktable.small-only { display: table; }
 }

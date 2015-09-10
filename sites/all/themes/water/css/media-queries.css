@@ -7,6 +7,13 @@
 
 /* 960 and under */
 @media screen and (max-width: 960px) {
+/*    table*/
+    table.waterstyle tr td {
+	padding: 13px 2px;
+    }  
+    table.waterstyle th {
+	padding: 13px 2px;
+    }
     .main > ul > li:last-child > ul{
         right:0;
     }
@@ -76,6 +83,18 @@
 }
 /* 768 and under */
 @media screen and (max-width: 768px) {
+    table.s-table,table.waterstyle {
+/*    max-width: 100%;*/
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-all;
+    }
+    .page-persons table.s-table,.page-persons table.waterstyle {
+    max-width: 100%;
+    width: auto;
+    table-layout: auto;
+    word-break: normal;
+    }
     img{
         width: auto;
         max-width: 100%;
@@ -446,7 +465,7 @@
     .listing .menu-collapser{
         width: 50px;
     }
-    table.waterstyle th {
+/*    table.waterstyle th {
         padding:5px 7px 7px 7px;
     }
     table.waterstyle tr td {
@@ -460,7 +479,7 @@
     }
     table.waterstyle tr td:first-child{
         padding-left: 5px;
-    }
+    }*/
     /* Vertical tabs styling */
     div.vertical-tabs{
         margin: auto;
@@ -591,12 +610,12 @@
     .page-persons #blocks{
         padding: 20px 4px;; 
     }
-    table.waterstyle th{
+/*    table.waterstyle th{
         padding: 5px 4px 7px 4px;
     }
     table.waterstyle tr td{
         padding: 4px;
-    }
+    }*/
     /* cols */
     .cols .colspan1, .cols .colspan2,
     .cols .colspan3, .cols .colspan4,

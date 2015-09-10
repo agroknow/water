@@ -71,6 +71,9 @@
             });
             $menu.on('click', '.subtrigger', function(e)
             {
+		if($options.resizeWidth < $(window).width()){
+		    return;
+		}
                 e.preventDefault();
                 e.stopPropagation();
                 
