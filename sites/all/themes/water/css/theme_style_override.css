@@ -431,3 +431,10 @@ ul{
 label.element-invisible {
     display: none;
 }
+
+/* Large images */
+.node-type-book img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
