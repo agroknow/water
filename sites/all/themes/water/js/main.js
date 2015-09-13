@@ -129,7 +129,6 @@ oWaterJQuery(document).ready(function() {
     if(oWaterJQuery('#block-block-17').length){
 	var top = oWaterJQuery(window).height() * 0.4;
 	top = +top.toFixed(2) + 100;
-	console.log(top);
 	oWaterJQuery('#block-block-17').css('top',top);
     }
     oWaterJQuery('table.views-table,table.sticky-enabled,table.sticky-header').addClass('waterstyle');
