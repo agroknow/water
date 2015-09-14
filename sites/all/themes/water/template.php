@@ -95,6 +95,9 @@ function water_preprocess_page(&$vars) {
  * Preprocess node
  */
 function water_preprocess_node(&$variables) {
+    if($variables['view_mode'] == 'teaser') {
+	$variables['theme_hook_suggestions'][] = 'node__' . $variables['node']->type . '__teaser';   
+    }
     if(arg(0) == 'taxonomy'){
         $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__taxonomy';
     }
