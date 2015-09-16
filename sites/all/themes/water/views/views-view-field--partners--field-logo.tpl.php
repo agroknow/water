@@ -29,7 +29,7 @@ $logosnum = count($logos);
 if ($logosnum > 1) {
     $colspan = 'colspan' . 12/$logosnum;
     foreach ($logos as $logo) {
-	print '<div class="col '.$colspan.'">' . $logo . '</div>';
+	print '<div class="'.$colspan.'">' . $logo . '</div>';
     }
 } else {
     print $output;

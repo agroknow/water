@@ -37,10 +37,14 @@ if ($rowsnum <= 4) {
 <?php if (!empty($title)): ?>
     <h3><?php print $title; ?></h3>
 <?php endif; ?>
-<div class="cols">    
-<?php foreach ($rows as $id => $row): ?>
+<div class="cols"> 
+    
+<?php $count = 0; foreach ($rows as $id => $row): ?>
+    <?php if(($break && $id == $break) || $count == $cols) { ?>
+    </div><div class="cols">
+    <?php if(!$break) $count = 0; } ?>
     <div class="col colspan<?php if($break && $id >= $break) { echo 12/$breakcols; } else { echo 12/$cols; } ?>">
-    <?php print $row; ?>
+    <?php print $row; $count++; ?>
     </div>
 <?php endforeach; ?>
 </div>
