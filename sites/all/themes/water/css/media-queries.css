@@ -49,22 +49,7 @@
     .footer-top nav.socials > div + div{
         margin-left: 0;
     }
-    .footer-middle .block{
-        width: 45%;
-        float: right;
-    }
-    .footer-middle{
-        height: auto;
-    }
-    .footer-top .center.clearfix, .footer-middle .center.clearfix{
-        max-width: 700px;
-    }
-    .footer-middle .firstblock, .footer-middle .thirdblock{
-        float: left;
-    }
-    .footer-middle .block:first-child{
-        margin-left: 20px;
-    }
+
     /* Primary tabs */
     ul.primary li a{
         padding: 0 0.2em;
@@ -198,23 +183,6 @@
     }
     .footer-top nav.socials > div + div{
         margin-left: 20px;
-    }
-    .footer-middle .block{
-        margin: 0 0 0 20px;
-        padding: 84px 20px 0 0;
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 440px;
-        float: none;
-    }
-    .footer-middle{
-        height: auto;
-    }
-    .footer-top .center.clearfix, .footer-middle .center.clearfix{
-        max-width: 480px;
-    }
-    .footer-middle .firstblock, .footer-middle .thirdblock{
-        /*float: left;*/
     }
 
     /* Table */
@@ -501,6 +469,51 @@
         /*    border: 1px solid #000;*/
         outline:1px dotted #f26c4f;
     }
+    /* cols */
+    .footer-middle .cols .colspan1,.footer-middle .cols .colspan2,
+    .footer-middle .cols .colspan3,.footer-middle .cols .colspan4,
+    .footer-middle .cols .colspan5,.footer-middle .cols .colspan6, 
+    .footer-middle .cols .colspan7,.footer-middle .cols .colspan8, 
+    .footer-middle .cols .colspan9,.footer-middle .cols .colspan10,
+    .footer-middle .cols .colspan11,.footer-middle .cols .colspan12{
+        width: 100%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan1{
+    width: 8.33%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan2{
+	width: 16.66%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan3{
+	width: 25%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan4{
+	width: 33.33%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan5{
+	width: 41.66%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan6{
+	width: 50%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan7{
+	width: 58.33%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan8{
+	width: 66.66%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan9{
+	width: 75%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan10{
+	width: 83.33%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan11{
+	width: 91.66%;
+    }
+    .footer-middle .cols .views-field-field-logo .colspan12{
+	width: 100%;
+    }
 
 }
 
@@ -508,11 +521,7 @@
     .basic-wrapper h1{
         font-size: 2.7em;
     }
-    /* General rules */
-    /*header#header .center {
-        max-width: 98%;
-        }*/
-
+ 
     .center {
         display: block;
         width: 100%;
