@@ -127,7 +127,7 @@ oWaterJQuery(document).ready(function() {
     });
     
     if(oWaterJQuery('#block-block-17').length){
-	var top = oWaterJQuery(window).height() * 0.4;
+	var top = oWaterJQuery(window).height() * 0.3;
 	top = +top.toFixed(2) + 100;
 	oWaterJQuery('#block-block-17').css('top',top);
 	oWaterJQuery('#block-block-17 a').each(function(){

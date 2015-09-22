@@ -1111,3 +1111,6 @@ article.event section .more {
 .footer-middle .cols .col{
     padding: 0 10px;
 }
+.atlwdg-trigger.atlwdg-RIGHT{
+    top: 30% !important;
+}
