@@ -618,6 +618,19 @@ article.event section .more {
 .footer-middle .block.row2.first {
     margin-left: 0px;
 }
+
+.footer-middle .block.row2 {
+    width: 470px;
+    padding-top: 20px;
+    
+}
+.footer-middle .block.row2 img{
+    max-width: 200px;
+}
+.footer-middle .block.row2.first {
+    margin-left: 0px;
+}
+
 .footer-middle .block {
     float: left;
     width: 306px;
