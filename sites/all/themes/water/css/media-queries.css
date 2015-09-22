@@ -49,7 +49,22 @@
     .footer-top nav.socials > div + div{
         margin-left: 0;
     }
-
+    .footer-middle .block,.footer-middle .block.row2{
+        width: 45%;
+        float: right;
+    }
+    .footer-middle{
+        height: auto;
+    }
+    .footer-top .center.clearfix, .footer-middle .center.clearfix{
+        max-width: 700px;
+    }
+    .footer-middle .firstblock, .footer-middle .thirdblock,.footer-middle .block.row2.last{
+        float: left;
+    }
+    .footer-middle .block:first-child{
+        margin-left: 20px;
+    }
     /* Primary tabs */
     ul.primary li a{
         padding: 0 0.2em;
@@ -183,6 +198,30 @@
     }
     .footer-top nav.socials > div + div{
         margin-left: 20px;
+    }
+    .footer-middle .block.row2.first{
+	margin-left: 20px;
+	
+    }
+    .footer-middle .block,.footer-middle .block.row2{
+        margin: 0 0 0 20px;
+        padding: 84px 20px 0 0;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 440px;
+        float: none;
+    }
+    .footer-middle .block.row2{
+	padding-top: 20px;
+    }
+    .footer-middle{
+        height: auto;
+    }
+    .footer-top .center.clearfix, .footer-middle .center.clearfix{
+        max-width: 480px;
+    }
+    .footer-middle .firstblock, .footer-middle .thirdblock{
+        /*float: left;*/
     }
 
     /* Table */
@@ -560,7 +599,7 @@
     .footer-top nav.socials > div + div{
         margin-left: 0px;
     }
-    .footer-middle .block{
+    .footer-middle .block,.footer-middle .block.row2{
         /*width: 100%;
         float: left;*/
         margin: auto;
@@ -569,6 +608,9 @@
         width: 100%;
         max-width: 300px;
         float: none;
+    }
+    .footer-middle .block.row2.first{
+	margin-left: auto;
     }
     .footer-middle .block:first-child{
         margin-left: auto;
