@@ -18,8 +18,13 @@
         The GWPP is supported by the Michigan State University Midland Research Institute for Value Chain Creation.
     </p>
 </section>
-<section class="block">
+<section class="block row2 first">
     <p>
         The GWP network is grateful for the gift from <a href="http://www.pg.com" target="_blank"><img src="http://media.pg.com/en_US/_images/skin/logo.png" /></a>
+    </p>
+</section>
+<section class="block row2 last">
+    <p>
+        The GWPP is grateful for the gift from Research Foundation for Health and Environmental Effects of American Chemistry Council.<a href="http://www.americanchemistry.com/" target="_blank"><img src="/sites/all/themes/water/img/ACC_Logo_color.png" /></a>
     </p>
 </section>
