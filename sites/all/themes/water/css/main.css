@@ -604,9 +604,8 @@ article.event section .more {
 }
 
 .footer-middle {
-    height: 327px;
     background: #2474b4;
-    padding-top: 40px;
+    padding: 40px 0;
 }
 .footer-middle .block.row2 {
     width: 470px;
@@ -619,6 +618,19 @@ article.event section .more {
 .footer-middle .block.row2.first {
     margin-left: 0px;
 }
+
+.footer-middle .block.row2 {
+    width: 470px;
+    padding-top: 20px;
+    
+}
+.footer-middle .block.row2 img{
+    max-width: 200px;
+}
+.footer-middle .block.row2.first {
+    margin-left: 0px;
+}
+
 .footer-middle .block {
     float: left;
     width: 306px;
