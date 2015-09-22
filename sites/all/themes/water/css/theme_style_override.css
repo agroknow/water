@@ -438,3 +438,8 @@ label.element-invisible {
     max-width: 100%;
     height: auto;
 }
+
+.node-type-book .node-book-image img{
+    border: 1px solid #ccc;
+    padding: 3px;
+}

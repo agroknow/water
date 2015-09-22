@@ -126,6 +126,11 @@ oWaterJQuery(document).ready(function() {
         oWaterJQuery('#markers-legend').css('left',docwidth/2 -115).slideToggle();
     });
     
+    if(oWaterJQuery('#block-block-17').length){
+	var top = oWaterJQuery(window).height() * 0.4;
+	top = +top.toFixed(2) + 100;
+	oWaterJQuery('#block-block-17').css('top',top);
+    }
     oWaterJQuery('table.views-table,table.sticky-enabled,table.sticky-header').addClass('waterstyle');
        
        var menuTopOffset = oWaterJQuery('nav.main .menu-collapser').parent().offset().top;
