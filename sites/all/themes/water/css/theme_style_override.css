@@ -426,6 +426,9 @@ ul{
     -ms-transform-origin: top left;
     transform: rotate(90deg);
     transform-origin: top left;
+    width: auto;
+    height: auto;
+    display: inline-block;
 }
 /* Invisible labels */
 label.element-invisible {

@@ -130,6 +130,10 @@ oWaterJQuery(document).ready(function() {
 	var top = oWaterJQuery(window).height() * 0.4;
 	top = +top.toFixed(2) + 100;
 	oWaterJQuery('#block-block-17').css('top',top);
+	oWaterJQuery('#block-block-17 a').each(function(){
+	    oWaterJQuery(this).css('margin-bottom',oWaterJQuery(this).width()-13);
+	    
+	});
     }
     oWaterJQuery('table.views-table,table.sticky-enabled,table.sticky-header').addClass('waterstyle');
        
