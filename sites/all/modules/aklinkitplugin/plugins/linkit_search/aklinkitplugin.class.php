@@ -38,6 +38,8 @@ class AkLinkitPlugin extends LinkitSearchPluginNode {
     $this->query->innerJoin('biblio_contributor', 'bc', 'n.vid = bc.vid');
     $this->query->innerJoin('biblio_contributor_data', 'bcd', 'bc.cid = bcd.cid');
     $this->query->leftJoin('biblio', 'b', 'n.vid = b.vid');
+    $this->query->leftJoin('biblio_keyword', 'bk', 'n.vid = bk.vid');
+    $this->query->leftJoin('biblio_keyword_data', 'bkd', 'bk.kid = bkd.kid');
     
     
     $this->query->fields('n',array('nid')); //get nid,title
@@ -61,7 +63,10 @@ class AkLinkitPlugin extends LinkitSearchPluginNode {
     $or = db_or();
     $or->condition('n.title', '%' . db_like($search_string) . '%', 'LIKE');
     $or->condition('bcd.name', '%' . db_like($search_string) . '%', 'LIKE');
+    $or->condition('b.biblio_secondary_title', '%' . db_like($search_string) . '%', 'LIKE');
+    $or->condition('bkd.word', '%' . db_like($search_string) . '%', 'LIKE');
     $this->query->condition($or);
+    $this->query->orderBy('b.biblio_year', 'DESC');//ORDER BY created
 
     // Add the search condition to the query object.
     /*$this->query->propertyCondition($this->entity_field_label,
@@ -70,26 +75,6 @@ class AkLinkitPlugin extends LinkitSearchPluginNode {
         ->addTag('linkit_' . $this->plugin['entity_type'] . '_autocomplete');*/
  
 /*
- * DEBUGGING
- * to search a biblio node using author name 
- * search must include tables biblio_contributor_data & biblio_contributor & (biblio or node)
- * EntityFieldQuery cannot support current requirement
- * implement plain query execution and return results in the format of EntityFieldQuery ($this->query->execute() & $matches)
- * e.g. (biblio.pages.inc)
- * $db_result = db_query('SELECT bd.cid, bd.drupal_uid, bd.name, bd.lastname,
-                                bd.firstname, bd.prefix, bd.suffix,
-                                bd.initials, bd.affiliation, bd.md5, bd.literal,
-                                COUNT(*) AS cnt
-                            FROM {biblio_contributor} b
-                                 LEFT JOIN {biblio_contributor_data} bd ON b.cid = bd.cid
-                                 INNER JOIN {node} n on n.vid = b.vid
-                            ' . $where_clause . '
-                            GROUP BY bd.cid, bd.drupal_uid, bd.name, bd.lastname,
-                                     bd.firstname, bd.prefix, bd.suffix,
-                                     bd.initials, bd.affiliation, bd.md5, bd.literal
-                            ORDER BY  lastname ASC, SUBSTRING(firstname,1,1) ASC,
-                            initials ASC', array(':filter' => $filter));
- * 
 $matches[] = array(
     'title' => $this->entity_field_label,
     'description' => '',

@@ -426,6 +426,9 @@ ul{
     -ms-transform-origin: top left;
     transform: rotate(90deg);
     transform-origin: top left;
+    width: auto;
+    height: auto;
+    display: inline-block;
 }
 /* Invisible labels */
 label.element-invisible {
@@ -437,4 +440,9 @@ label.element-invisible {
     width: auto;
     max-width: 100%;
     height: auto;
+}
+
+.node-type-book .node-book-image img{
+    border: 1px solid #ccc;
+    padding: 3px;
 }

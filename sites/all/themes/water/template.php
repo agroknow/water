@@ -95,8 +95,20 @@ function water_preprocess_page(&$vars) {
  * Preprocess node
  */
 function water_preprocess_node(&$variables) {
+    if($variables['view_mode']) {
+	$variables['theme_hook_suggestions'][] = 'node__' . $variables['node']->type . '__' . $variables['view_mode'];   
+    }
     if(arg(0) == 'taxonomy'){
         $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__taxonomy';
+    }
+}
+
+/**
+ * Preprocess field
+ */
+function water_preprocess_field(&$variables) {
+    if($variables['element']['#view_mode']) {
+    $variables['theme_hook_suggestions'][] = 'field__' . $variables['element']['#field_name'] . '__' . $variables['element']['#view_mode'];
     }
 }
 
