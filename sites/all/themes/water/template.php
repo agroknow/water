@@ -29,8 +29,8 @@ function water_preprocess_lang_dropdown_form(&$variables){
  */
 function water_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'search_block_form') {
-      $form['search_block_form']['#attributes']['title'] = t('Type a keyword to search in GWP page');
-      $form['search_block_form']['#attributes']['placeholder'] = t('Type a keyword to search in GWP page');
+      $form['search_block_form']['#attributes']['title'] = t('Type a keyword to search GWPP');
+      $form['search_block_form']['#attributes']['placeholder'] = t('Type a keyword to search GWPP');
       $form['actions']['submit']['#value'] = "";
       $form['search_block_form']['#field_suffix'] = drupal_render($form['actions']['submit']);
   }
