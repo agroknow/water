@@ -446,3 +446,7 @@ label.element-invisible {
     border: 1px solid #ccc;
     padding: 3px;
 }
+/* Biblio search */
+html.js #biblio-search-form fieldset.collapsed{
+    height: auto;
+}
