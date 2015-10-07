@@ -295,7 +295,11 @@ function water_breadcrumb($variables){
  * Add a class to system tables for stacktable script.
  */
 function water_preprocess_table(&$variables) {
-  $variables['attributes']['class'][] = 's-table';
+    if(is_string($variables['attributes']['class'])){
+	$variables['attributes']['class'] .= ' s-table';
+    } else {
+	$variables['attributes']['class'][] = 's-table';
+  }
 }
 
 function isFrontPage(){
