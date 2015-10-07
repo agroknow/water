@@ -278,7 +278,7 @@ function field_weight_entity_view_alter(&$build, $type) {
         // if there is a db entry the weights will be changed for all fields stored.
         foreach ($node_weights as $key => $values) {
           $build[$key]['#weight'] = $values['weight'];
-          if ($values['hidden'] == TRUE) {
+          if ($values['hidden'] == TRUE && !$build['#node']->in_preview) {
             // If field has been hidden set this to FALSE, therefore won't be displayed.
             $build[$key]['#access'] = FALSE;
           }
