@@ -118,7 +118,8 @@ foreach ($rows as $row_count => $row){
         }
     }
 }
-
+//Sort by group name
+ksort($legendInfo);
 /*
 all gmap3_tools_add_map() function from API file with appropriate map configuration array,
 for more map options check https://developers.google.com/maps/documentation/javascript/reference?csw=1#MapOptions
