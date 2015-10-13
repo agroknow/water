@@ -8,3 +8,75 @@ function aklinkitplugin_ctools_plugin_directory($module, $plugin) {
     return "plugins/" . $plugin;
   }
 }
+
+/**
+ * Implements hook_menu().
+*/
+function aklinkitplugin_menu(){
+    $items['aklinkitplugin/autocomplete'] = array(
+    'page callback' => 'aklinkitplugin_autocomplete',
+    'access callback' => 'reference_autocomplete_access',
+    'access arguments' => array('node', 'book', 'field_authors'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form_alter() 
+ */
+function aklinkitplugin_form_alter(&$form, &$form_state,$form_id){
+    if($form_id == 'book_node_form'){   
+	$max_delta = $form['field_authors']['und']['#max_delta'];
+	for($i = 0; $i <= $max_delta ; $i++){
+	$form['field_authors']['und'][$i]['nid']['#autocomplete_path'] = 'aklinkitplugin/autocomplete';
+	}
+    }
+}
+
+/**
+ * Page callback function
+ * @param type $string
+ * 
+ */
+function aklinkitplugin_autocomplete($string) {
+    
+  $query = db_select('node', 'n');
+  $query->leftJoin('field_data_field_first_name', 'fn', 'n.nid = fn.entity_id');
+  $query->addField('n', 'nid');
+  $query->addField('n', 'title', 'node_title');
+  $query->addField('fn', 'field_first_name_value', 'first_name');
+  $query->condition('n.status', 1);
+  $query->condition('n.type', 'person');
+  
+  $or = db_or();
+  $or->condition('n.title', '%' . db_like($string) . '%', 'LIKE');
+  $or->condition('fn.field_first_name_value', '%' . db_like($string) . '%', 'LIKE');
+  $query->condition($or);
+  
+  $query->orderBy('n.nid','ASC');
+
+  $result = $query->execute()->fetchAll();
+  //var_dump($result);exit;
+  $references = array();
+  foreach ($result as $node) {
+    $references[$node->nid] = array(
+      'title'    => $node->node_title,
+      'rendered' => check_plain( $node->node_title . ' ' . $node->first_name ),
+    );
+  }
+  
+  $matches = array();
+  foreach ($references as $id => $row) {
+    // Markup is fine in autocompletion results (might happen when rendered
+    // through Views) but we want to remove hyperlinks.
+    // remove following line - not using views
+    //$suggestion = preg_replace('/<a href="([^<]*)">([^<]*)<\/a>/', '$2', $row['rendered']);
+    // Add a class wrapper for a few required CSS overrides.
+    
+    //$matches[$row['title'] . " [nid:$id]"] = '<div class="reference-autocomplete">' . $suggestion . '</div>';
+    $matches[$row['title'] . " [nid:$id]"] = '<div class="reference-autocomplete">' . $row['rendered'] . '</div>';
+  }
+
+  drupal_json_output($matches);
+}
