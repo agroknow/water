@@ -97,7 +97,15 @@
   <?php endif; ?>
 
   <div class="content"<?php print $content_attributes; ?>>
+    <div class="field">
+    <div class="field-label">Authors:&nbsp;</div>
     <?php
+    $authors = array();
+    foreach( $node->field_authors['und'] as $author ) {
+	$authors[] = $author['node']->title;
+    }
+    print implode(', ', $authors);
+    print '</div>';
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
