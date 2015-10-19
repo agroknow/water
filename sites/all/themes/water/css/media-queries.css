@@ -233,7 +233,9 @@
         padding: 0 0.2em;
     }
     /* With sidebar */
-    section.sidebars div.block-block, section.sidebars div.block-views{
+    section.sidebars div.block-block,
+    section.sidebars div.block-views,
+    section.sidebars div.block-addthis{
         width: 100%;
     }
     section.sidebars div.region-content{
