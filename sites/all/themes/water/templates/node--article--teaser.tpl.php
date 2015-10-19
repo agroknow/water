@@ -89,34 +89,21 @@
     <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-
+  <div class="cols">
   <?php if ($display_submitted): ?>
-    <div class="submitted">
+    <div class="submitted col colspan3">
       <?php print $submitted; ?>
     </div>
   <?php endif; ?>
 
-  <div class="content"<?php print $content_attributes; ?>>
-    <div class="field">
-    <div class="field-label">Authors:&nbsp;</div>
+  <div class="content col colspan9"<?php print $content_attributes; ?>>
     <?php
-    $authors = array();
-    foreach( $node->field_authors['und'] as $author ) {
-	$authors[] = $author['node']->title;
-    }
-    print implode(', ', $authors);
-    print '</div>';
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
-      hide($content['field_rich_title']);
-      hide($content['field_authors']);
       print render($content);
-      print render($content['field_authors']);
-      $bnav = '';
-      $bnav .= booktree_mostra_figli($node->book['mlid'], $node->nid, $node->title, 1, 3, 500, $node->book['mlid']);
-      print render($bnav);
     ?>
+  </div>
   </div>
 
   <!--<?php //print render($content['links']); ?>-->

@@ -146,6 +146,11 @@ oWaterJQuery(document).ready(function() {
             menuElement.removeClass('fixed');
        }
     });
+       oWaterJQuery('#book-node-form').submit(function() {
+       if(oWaterJQuery('#edit-book-book-helper-link-title-custom').val() == '') {
+            oWaterJQuery('#edit-book-book-helper-link-title-sync').prop('checked',true);
+        }
+        });
 });
 
 function isTouchDevice(){
