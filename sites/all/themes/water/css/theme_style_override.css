@@ -137,7 +137,8 @@ section.sidebars div.region-content{
     width:75%;
 }
 section.sidebars div.block-block,
-section.sidebars div.block-views{
+section.sidebars div.block-views,
+section.sidebars div.block-addthis{
     float:left;
     width:25%;
     padding:5px;
@@ -449,4 +450,8 @@ label.element-invisible {
 /* Biblio search */
 html.js #biblio-search-form fieldset.collapsed{
     height: auto;
+}
+/* Article type */
+.node-article .content{
+    padding-right: 10px;
 }
