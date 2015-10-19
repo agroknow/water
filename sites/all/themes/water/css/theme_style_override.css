@@ -455,3 +455,7 @@ html.js #biblio-search-form fieldset.collapsed{
 .node-article .content{
     padding-right: 10px;
 }
+.node-article .field-type-image img {
+    float: right;
+    margin: 0 0 20px 20px;
+}
