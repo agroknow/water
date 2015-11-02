@@ -459,3 +459,14 @@ html.js #biblio-search-form fieldset.collapsed{
     float: right;
     margin: 0 0 20px 20px;
 }
+
+article.event .until{
+    float: left;
+    margin-left: 0;
+    width: 40px;
+    background: #E04F2F;
+    height: 65px;
+    color: #fff;
+    padding-left: 8px;
+    padding-top: 10px;
+}
