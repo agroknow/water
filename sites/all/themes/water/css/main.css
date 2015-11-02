@@ -369,8 +369,8 @@ article.event {
 }
 article.event time {
     float: left;
-    width: 62px;
-    height: 62px;
+    width: 75px;
+    height: 65px;
     background: #f26c4f;
     color: #fff;
     font-size: 14px;
