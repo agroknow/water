@@ -18,21 +18,16 @@
  *   field id, then row number. This matches the index in $rows.
  * @ingroup views_templates
  */
-
+//krumo($rows);exit;
 foreach ($rows as $row_count => $row): ?>
 <article class="event clearfix">
     <time datetime="2014-12-20 20:00"><?php print $row['field_starting_date']; ?></time>
-    <h3><a href="#"><?php print $row['title']; ?></a></h3>
-    <!--a href="#" class="slidetoggle ir">open/close</a>
+    <h3><?php print $row['title']; ?></a></h3>
+    <a href="#" class="slidetoggle ir">open/close</a>
     <section class="clearfix toslide">
-        <img src="img/sample100x75.jpg" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus risus libero, suscipit vestibulum risus a. </p>
-        <a href="#" class="more">more</a>
-    </section!-->
-<?php 
-/*foreach ($row as $field => $content){
-    print $content;
-}*/
-?>
+        <?php print $row['field_event_image']; ?>
+        <?php print $row['body']; ?>
+        <a href="<?php print $row['path']; ?>" class="more">more</a>
+    </section>
 </article>
 <?php endforeach; ?>
