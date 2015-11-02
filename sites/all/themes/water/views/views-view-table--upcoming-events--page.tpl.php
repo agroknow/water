@@ -22,12 +22,7 @@
 foreach ($rows as $row_count => $row): ?>
 <article class="event clearfix">
     <time datetime="2014-12-20 20:00"><?php print $row['field_starting_date']; ?></time>
-    <h3><?php print $row['title']; ?></a></h3>
-    <a href="#" class="slidetoggle ir">open/close</a>
-    <section class="clearfix toslide">
-        <?php print $row['field_event_image']; ?>
-        <?php print $row['body']; ?>
-        <a href="<?php print $row['path']; ?>" class="more">more</a>
-    </section>
+    <div class="until"><?php print $row['field_ending_date']; ?></div>
+    <h3><?php print $row['title']; ?></h3>
 </article>
 <?php endforeach; ?>
