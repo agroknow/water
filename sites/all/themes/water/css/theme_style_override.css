@@ -144,6 +144,15 @@ section.sidebars div.block-addthis{
     padding:5px;
 }
 
+.node-type-article section.sidebars div.block-block,
+.node-type-article section.sidebars div.block-views,
+.node-type-article section.sidebars div.block-addthis{
+    padding-left:30px;
+}
+.node-type-article .region-content{
+    padding-right: 10px;
+}
+
 #markers-legend{
     padding: 2px;
     background-color: #666;
