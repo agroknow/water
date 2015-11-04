@@ -109,7 +109,7 @@ $content['field_person_geolocation'][0]['#markup'] = $part1;
             <div class="col colspan5 person-photo-container">
                     <?php $gender = $node->field_gender ? $node->field_gender['und'][0]['tid'] : 17; ?>
                     <img class="person-photo" src="<?php print 
-                    isset($node->field_profile_photo['und']['0']['uri']) ? file_create_url($node->field_profile_photo['und']['0']['uri']) : base_path() . path_to_theme() . '/img/avatar_' . $gender . '.jpg'  ?>" alt="<?php print $node->title ?>" />
+                    isset($node->field_profile_photo['und']['0']['uri']) ? image_style_url('persons_image',$node->field_profile_photo['und']['0']['uri']) : image_style_url('persons_image','public://avatar_' . $gender . '.jpg')  ?>" alt="<?php print $node->title ?>" />
                     <?php if(/*isset($node->field_person_email_address['und'][0]['value'])*/false) { ?>
                     <div class="mail-person"><a href="mailto:<?php print $node->field_person_email_address['und'][0]['value'] ?>" >Send email</a></div>
                     <?php } ?>
