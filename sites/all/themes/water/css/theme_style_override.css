@@ -479,3 +479,6 @@ article.event .until{
     padding-left: 8px;
     padding-top: 10px;
 }
+div.media-browser-tab.ui-tabs-hide{
+    display: none;
+}
