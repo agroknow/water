@@ -19,17 +19,45 @@ function aklinkitplugin_menu(){
     'access arguments' => array('node', 'book', 'field_authors'),
     'type' => MENU_CALLBACK,
   );
+    $items['agreement-form'] = array(
+	'title' => 'Upload agreement form',
+	'description' => 'Upload the signed agreement.',
+	'page callback' => 'ak_agreement_form',
+	'access callback' => TRUE,
+	'type' => MENU_NORMAL_ITEM,
+    );
   return $items;
+}
+
+function ak_agreement_form() {
+  global $user;
+  $query = db_select('file_managed','f');
+  $query->fields('f',array('fid'));
+  $query->condition('f.type', 'agreement_scan' )
+  ->condition('f.uid', $user->uid);
+  $user_files = $query->execute()->fetchCol();
+  if($user_files) {
+  return '<h2>You have already submitted the agreement.</h2><p>In order to submit again contact administrator.</p>';
+  } else {
+  module_load_include('inc', 'file_entity', 'file_entity.pages');
+  return drupal_get_form('file_entity_add_upload', array('file_directory' => 'agreements','file_extensions' => 'png jpeg jpg pdf'));
+  }
 }
 
 /**
  * Implements hook_form_alter() 
  */
-function aklinkitplugin_form_alter(&$form, &$form_state,$form_id){
+function aklinkitplugin_form_alter(&$form, &$form_state, $form_id){
     if($form_id == 'book_node_form'){   
 	$max_delta = $form['field_authors']['und']['#max_delta'];
 	for($i = 0; $i <= $max_delta ; $i++){
 	$form['field_authors']['und'][$i]['nid']['#autocomplete_path'] = 'aklinkitplugin/autocomplete';
+	}
+    }
+    if($form_id == 'file_entity_add_upload') {
+	if($form['#step'] == 1) {
+	  $form['#step'] += 1;
+          $form_state['storage']['type'] = (current_path() == 'agreement-form') ? 'agreement_scan' : 'image';
 	}
     }
 }
