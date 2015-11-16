@@ -33,7 +33,7 @@ function ak_agreement_form() {
   global $user;
   $query = db_select('file_managed','f');
   $query->fields('f',array('fid'));
-  $query->condition('f.type', 'agreement_scan' )
+  $query->condition('f.type', 'x_agreement_scan' )
   ->condition('f.uid', $user->uid);
   $user_files = $query->execute()->fetchCol();
   if($user_files) {
@@ -90,14 +90,14 @@ function file_entity_submit_override($form, &$form_state) {
           $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
           $form_state['storage']['type'] = reset($candidates_keys);
         }
-        elseif (count($candidates) == 2 && in_array('agreement_scan', $candidates_keys)) {
+        elseif (count($candidates) == 2 && in_array('x_agreement_scan', $candidates_keys)) {
           // There are 2 possible filetype for this file and one is agreement scan.
           // Skip the second page.
-          unset($candidates['agreement_scan']);
+          unset($candidates['x_agreement_scan']);
           $candidates_keys = array_keys($candidates);
           $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
           // if agreement submit set to agreement scan else the other type
-          $form_state['storage']['type'] = (current_path() == 'agreement-form') ? 'agreement_scan' : reset($candidates_keys); 
+          $form_state['storage']['type'] = (current_path() == 'agreement-form') ? 'x_agreement_scan' : reset($candidates_keys); 
         }
         elseif (!$candidates || variable_get('file_entity_file_upload_wizard_skip_file_type', FALSE)) {
           // Do not assign the file a file type.
@@ -204,7 +204,7 @@ function file_entity_submit_override($form, &$form_state) {
       $path = 'admin/content/file';
     }
     else {
-      $path = ($file->type != 'agreement_scan') ? 'file/' . $file->fid : '<front>';
+      $path = ($file->type != 'x_agreement_scan') ? 'file/' . $file->fid : '<front>';
     }
     $form_state['redirect'] = $path;
   }
