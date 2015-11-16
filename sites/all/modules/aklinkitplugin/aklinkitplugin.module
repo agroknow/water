@@ -49,17 +49,171 @@ function ak_agreement_form() {
  */
 function aklinkitplugin_form_alter(&$form, &$form_state, $form_id){
     if($form_id == 'book_node_form'){   
-	$max_delta = $form['field_authors']['und']['#max_delta'];
-	for($i = 0; $i <= $max_delta ; $i++){
-	$form['field_authors']['und'][$i]['nid']['#autocomplete_path'] = 'aklinkitplugin/autocomplete';
-	}
+    	$max_delta = $form['field_authors']['und']['#max_delta'];
+    	for($i = 0; $i <= $max_delta ; $i++){
+    	$form['field_authors']['und'][$i]['nid']['#autocomplete_path'] = 'aklinkitplugin/autocomplete';
+    	}
     }
     if($form_id == 'file_entity_add_upload') {
-	if($form['#step'] == 1) {
-	  $form['#step'] += 1;
-          $form_state['storage']['type'] = (current_path() == 'agreement-form') ? 'agreement_scan' : 'image';
-	}
+      $form['#submit'] = array('file_entity_submit_override');
     }
+}
+
+function file_entity_submit_override($form, &$form_state) { 
+  module_load_include('inc', 'file_entity', 'file_entity.pages');
+
+  $form_state['storage'] = isset($form_state['storage']) ? $form_state['storage'] : array();
+  $form_state['storage'] = array_merge($form_state['storage'], $form_state['values']);
+
+  // This var is set to TRUE when we are ready to save the file.
+  $save = FALSE;
+  $trigger = $form_state['triggering_element']['#id'];
+
+  $steps_to_check = array(2, 3);
+  if ($trigger == 'edit-previous') {
+    // If the previous button was hit,
+    // the step checking order should be reversed 3, 2.
+    $steps_to_check = array_reverse($steps_to_check);
+  }
+
+  foreach ($steps_to_check as $step) {
+    // Check if we can skip step 2 and 3.
+    if (($form['#step'] == $step - 1 && $trigger == 'edit-next') || ($form['#step'] == $step + 1 && $trigger == 'edit-previous')) {
+      $file = file_load($form_state['storage']['upload']);
+      if ($step == 2) {
+        // Check if we can skip step 2.
+        $candidates = file_entity_get_filetype_candidates($file);
+        $candidates_keys = array_keys($candidates);
+        if (count($candidates) == 1) {
+          // There is only one possible filetype for this file.
+          // Skip the second page.
+          $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
+          $form_state['storage']['type'] = reset($candidates_keys);
+        }
+        elseif (count($candidates) == 2 && in_array('agreement_scan', $candidates_keys)) {
+          // There are 2 possible filetype for this file and one is agreement scan.
+          // Skip the second page.
+          unset($candidates['agreement_scan']);
+          $candidates_keys = array_keys($candidates);
+          $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
+          // if agreement submit set to agreement scan else the other type
+          $form_state['storage']['type'] = (current_path() == 'agreement-form') ? 'agreement_scan' : reset($candidates_keys); 
+        }
+        elseif (!$candidates || variable_get('file_entity_file_upload_wizard_skip_file_type', FALSE)) {
+          // Do not assign the file a file type.
+          $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
+          $form_state['storage']['type'] = FILE_TYPE_NONE;
+        }
+      }
+      else {
+        // Check if we can skip step 3.
+        $options = $form['#options'];
+        $schemes = file_get_stream_wrappers(STREAM_WRAPPERS_WRITE_VISIBLE);
+
+        // Remove any schemes not found in the instance settings.
+        if (!empty($options['schemes'])) {
+          $schemes = array_intersect_key($schemes, $options['schemes']);
+        }
+
+        if (!file_entity_file_is_writeable($file)) {
+          // The file is read-only (remote) and must use its provided scheme.
+          $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
+          $form_state['storage']['scheme'] = file_uri_scheme($file->uri);
+        }
+        elseif (count($schemes) == 1) {
+          // There is only one possible stream wrapper for this file.
+          // Skip the third page.
+          $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
+          $form_state['storage']['scheme'] = key($schemes);
+        }
+        elseif (variable_get('file_entity_file_upload_wizard_skip_scheme', FALSE)) {
+          $form['#step'] += ($trigger == 'edit-previous') ? -1 : 1;
+
+          // Fallback to the URI scheme specified in the field settings
+          // otherwise use the default file scheme.
+          if (!empty($options['uri_scheme'])) {
+            $form_state['storage']['scheme'] = $options['uri_scheme'];
+          }
+          else {
+            $form_state['storage']['scheme'] = file_default_scheme();
+          }
+        }
+      }
+    }
+  }
+
+  // We have the filetype, check if we can skip step 4.
+  if (($form['#step'] == 3 && $trigger == 'edit-next')) {
+    $file = file_load($form_state['storage']['upload']);
+    if (!field_info_instances('file', $form_state['storage']['type'])) {
+      // This filetype doesn't have fields, save the file.
+      $save = TRUE;
+    }
+    elseif (variable_get('file_entity_file_upload_wizard_skip_fields', FALSE)) {
+      // Save the file with blanks fields.
+      $save = TRUE;
+    }
+  }
+
+  // Form id's can vary depending on how many other forms are displayed, so we
+  // need to do string comparissons. e.g edit-submit--2.
+  if (strpos($trigger, 'edit-next') !== FALSE) {
+    $form_state['step'] = $form['#step'] + 1;
+  }
+  elseif (strpos($trigger, 'edit-previous') !== FALSE) {
+    $form_state['step'] = $form['#step'] - 1;
+  }
+  elseif (strpos($trigger, 'edit-submit') !== FALSE) {
+    $save = TRUE;
+  }
+
+  if ($save) {
+    $file = file_load($form_state['storage']['upload']);
+    if ($file) {
+      if (file_uri_scheme($file->uri) != $form_state['storage']['scheme']) {
+        $file_destination = $form_state['storage']['scheme'] . '://' . file_uri_target($file->uri);
+        $file_destination = file_stream_wrapper_uri_normalize($file_destination);
+        if ($moved_file = file_move($file, $file_destination, FILE_EXISTS_RENAME)) {
+          // Only re-assign the file object if file_move() did not fail.
+          $file = $moved_file;
+        }
+      }
+      $file->type = $form_state['storage']['type'];
+      $file->display = TRUE;
+
+      // Change the file from temporary to permanent.
+      $file->status = FILE_STATUS_PERMANENT;
+
+      // Save the form fields.
+      // Keep in mind that the values for the Field API fields must be in
+      // $form_state['values'] and not in ['storage']. This is true as long as
+      // the fields are on the last page of the multi step form.
+      entity_form_submit_build_entity('file', $file, $form, $form_state);
+
+      file_save($file);
+      $form_state['file'] = $file;
+      drupal_set_message(t('@type %name was uploaded.', array('@type' => file_entity_type_get_name($file), '%name' => $file->filename)));
+    }
+    else {
+      drupal_set_message(t('An error occurred and no file was uploaded.'), 'error');
+      return;
+    }
+
+    // Figure out destination.
+    if (user_access('administer files')) {
+      $path = 'admin/content/file';
+    }
+    else {
+      $path = ($file->type != 'agreement_scan') ? 'file/' . $file->fid : '<front>';
+    }
+    $form_state['redirect'] = $path;
+  }
+  else {
+    $form_state['rebuild'] = TRUE;
+  }
+
+  // Clear the page and block caches.
+  cache_clear_all();
 }
 
 /**
