@@ -43,8 +43,9 @@ class AkLinkitPlugin extends LinkitSearchPluginNode {
     
     
     $this->query->fields('n',array('nid')); //get nid,title
-    $this->query->addExpression("CONCAT(b.biblio_year, ' Author: ', bcd.name)", 'nameyear');
-    //$this->query->fields('bcd', array('name')); //get nid,title
+    //$this->query->addExpression("CONCAT(b.biblio_year, ' Author: ', bcd.name)", 'nameyear');
+    $this->query->fields('bcd', array('name')); //get nid,title
+    $this->query->fields('b', array('biblio_year')); //get nid,title
     $this->query->condition('n.status', 1);
     $this->query->condition('n.type', 'biblio');
     
@@ -98,7 +99,7 @@ return $matches;
     }*/
 
     // Execute the query.
-    $result = $this->query->execute()->fetchAllKeyed();
+    $result = $this->query->execute()->fetchAllAssoc('nid');
     
     /*if (!isset($result[$this->plugin['entity_type']])) {
       return array();
@@ -117,7 +118,7 @@ return $matches;
 
       $matches[] = array(
         'title' => biblio_remove_brace($this->createLabel($entity)),
-        'description' => $this->createDescription($entity) . ' Year: ' . $result[$key],
+        'description' => $this->createDescription($entity) . ' <span class="name">' . $result[$key]->name . '</span>  <span class="year">' . $result[$key]->biblio_year . '</span>',
         'path' => $this->createPath($entity),
         'group' => $this->createGroup($entity),
         'addClass' => $this->createRowClass($entity),

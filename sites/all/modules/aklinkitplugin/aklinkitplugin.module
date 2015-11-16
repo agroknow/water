@@ -57,6 +57,10 @@ function aklinkitplugin_form_alter(&$form, &$form_state, $form_id){
     if($form_id == 'file_entity_add_upload') {
       $form['#submit'] = array('file_entity_submit_override');
     }
+    if($form_id == 'linkit_dashboard_form') {
+      // Attach js to the form.
+      $form['#attached']['js'][] = drupal_get_path('module', 'aklinkitplugin') . '/aklinkitplugin_filters.js';
+    }
 }
 
 function file_entity_submit_override($form, &$form_state) { 

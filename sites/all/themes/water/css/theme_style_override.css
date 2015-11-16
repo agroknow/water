@@ -567,3 +567,37 @@ div.media-browser-tab.ui-tabs-hide{
 .view-newsletter-archive.view-display-id-page {
     padding-right: 30px;
 }
+/* References filtering */
+#linkit-modal .linkit-search-element, #linkit-modal .linkit-path-element{
+    width: 430px;
+}
+#refine-filters-btn{
+    display: inline-block;
+    padding: 2px 5px;
+    background: #0075BA;
+    color: #fff;
+    border-radius: 4px;
+    margin-left: 3px;
+}
+#refine-filters{
+    overflow: auto;
+    margin-top: 4px;
+}
+#refine-filters span{
+    position: relative;
+    float: left;
+    margin-right: 3px;
+}
+#refine-filters input{
+    padding-left: 50px;
+    width: 213px;
+}
+#refine-filters label{
+    position: absolute;
+    line-height: 35px;
+    padding: 0 8px;
+    background: #0075BA;
+    color: #fff;
+    border-radius:5px 0 0 5px;
+    border-right: 1px solid #ccc;
+}
