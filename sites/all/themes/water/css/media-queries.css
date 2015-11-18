@@ -86,8 +86,8 @@
     table.s-table,table.waterstyle {
 /*    max-width: 100%;*/
     width: 100%;
-    table-layout: fixed;
-    word-break: break-all;
+    /*table-layout: fixed;
+    word-break: break-all;*/
     }
     .page-persons table.s-table,.page-persons table.waterstyle {
     max-width: 100%;
