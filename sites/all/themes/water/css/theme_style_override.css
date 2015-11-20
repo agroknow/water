@@ -504,7 +504,7 @@ div.media-browser-tab.ui-tabs-hide{
     height: 50px;
     width: 50px;
     position: relative;
-    margin: 0 auto 40px;
+    margin: 40px auto 0;
 
 }
 .node-newsletter .field a{
