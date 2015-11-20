@@ -544,7 +544,7 @@ div.media-browser-tab.ui-tabs-hide{
     display: none;
 }
 #block-system-main .content .node-newsletter {
-    margin-top: 50px;
+   /*  margin-top: 50px; */
 }
 .view-newsletter-archive ul{
     list-style-type: none; 
