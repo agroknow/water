@@ -500,7 +500,7 @@ div.media-browser-tab.ui-tabs-hide{
     font-weight: bold;
     padding: 10px;
 }
-.node-newsletter .field{
+.node-newsletter .field.field-type-file,.node-newsletter .field.field-type-link-field{
     height: 50px;
     width: 50px;
     position: relative;
