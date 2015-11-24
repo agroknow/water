@@ -550,14 +550,17 @@ article.event section .more {
     float: right;
     margin: 0 20px 0 0;
 }
-.footer-top .contact label {
+.footer-top .contact div.webform-component {
     display: block;
     margin-bottom: 15px;
     position: relative;
     background: #2474b4 url(../img/sprite.png) 0 0 no-repeat;
 }
-.footer-top .contact label:hover {
+.footer-top .contact div.webform-component:hover {
     background-color: #f26c4f;
+}
+.footer-top .contact label{
+    display: none;
 }
 .footer-top .contact input, .footer-top .contact textarea {
     width: 320px;
@@ -576,13 +579,13 @@ article.event section .more {
     resize: none;
 }
 
-.footer-top .contact label.email {
+.footer-top .contact div.email {
     background-position: 13px -741px;
 }
-.footer-top .contact label.subject {
+.footer-top .contact div.subject {
     background-position: -91px -741px;
 }
-.footer-top .contact label.message {
+.footer-top .contact div.message {
     background-position: -196px -741px;
 }
 .footer-top .contact div {
@@ -598,6 +601,7 @@ article.event section .more {
     color: #fff;
     font-size: 22px;
     font-weight: 700;
+    margin-right: 0;
 }
 .footer-top .contact input[type=submit]:hover {
     background: #f26c4f;
