@@ -82,6 +82,7 @@ function water_preprocess_page(&$vars) {
       
       }
   }
+  
     
         
     //var_dump($vars);
@@ -89,6 +90,12 @@ function water_preprocess_page(&$vars) {
     //var_dump(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS));
     
 //    $vars['contact_form'] = drupal_render(drupal_get_form('contact_site_form'));
+}
+
+function water_process_page(&$variables) {
+  if(isset($variables['page']['content']['system_main']['no_content'])) {
+    unset($variables['page']['content']['system_main']['no_content']);
+  }
 }
 
 /**
