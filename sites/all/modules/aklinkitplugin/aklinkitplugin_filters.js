@@ -2,7 +2,7 @@ jQuery.expr[':'].contains = function(a,i,m) {
 	      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
 	  };
 jQuery(document).ready(function() {
-	jQuery('body').on( "click", '#edit-linkit-search', function() {
+	jQuery('body').on( "focus", '#edit-linkit-search', function() {
 		var $filters = '<a href="#" id="refine-filters-btn">Filter</a><div id="refine-filters" style="display:none;"><span><label>Name</label><input id="name" type="text" /></span><span><label>Year</label><input id="year" type="text" /></span></div>';
 		if(jQuery(this).parent().find('#refine-filters').length == 0) {
 		jQuery(this).next().before($filters);
