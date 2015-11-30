@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Water fe newsletter feature.
+ */
+
+include_once 'water_fe_newsletter.features.inc';

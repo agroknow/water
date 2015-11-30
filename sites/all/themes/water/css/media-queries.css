@@ -86,8 +86,8 @@
     table.s-table,table.waterstyle {
 /*    max-width: 100%;*/
     width: 100%;
-    table-layout: fixed;
-    word-break: break-all;
+    /*table-layout: fixed;
+    word-break: break-all;*/
     }
     .page-persons table.s-table,.page-persons table.waterstyle {
     max-width: 100%;
@@ -233,7 +233,9 @@
         padding: 0 0.2em;
     }
     /* With sidebar */
-    section.sidebars div.block-block, section.sidebars div.block-views{
+    section.sidebars div.block-block,
+    section.sidebars div.block-views,
+    section.sidebars div.block-addthis{
         width: 100%;
     }
     section.sidebars div.region-content{

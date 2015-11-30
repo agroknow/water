@@ -21,7 +21,8 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
+$strdate = $row->field_field_ending_date[0]['raw']['value'];
+if (($timestamp = strtotime($strdate)) !== false){
+    print date('d M', $timestamp);
+}
 ?>
-<?php 
-$path = 'news/' . $row->tid;
-print l($row->taxonomy_term_data_name, 'news/' . $row->tid) ?>
