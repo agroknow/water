@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Water fe event feature.
+ */
+
+include_once 'water_fe_event.features.inc';
