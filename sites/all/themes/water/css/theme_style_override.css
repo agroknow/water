@@ -144,6 +144,12 @@ section.sidebars div.block-addthis{
     padding:5px;
 }
 
+section.sidebars div.block-block h2,
+section.sidebars div.block-views h2,
+section.sidebars div.block-addthis h2{
+    margin-top: 0;
+}
+
 .node-type-article section.sidebars div.block-block,
 .node-type-article section.sidebars div.block-views,
 .node-type-article section.sidebars div.block-addthis{
@@ -478,4 +484,86 @@ article.event .until{
     color: #fff;
     padding-left: 8px;
     padding-top: 10px;
+}
+div.media-browser-tab.ui-tabs-hide{
+    display: none;
+}
+/* Newsletter */
+
+.node-newsletter .field:before{
+    position: absolute;
+    top: 0;
+    color: #000;
+    width: 175px;
+    left: -200px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+.node-newsletter .field{
+    height: 50px;
+    width: 50px;
+    position: relative;
+    margin: 0 auto 40px;
+
+}
+.node-newsletter .field a{
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    opacity: 0.2;
+    color: transparent;
+    background: #ccc;
+    border: 1px solid #000;
+    border-radius: 100%;
+    transition: all .4s ;
+}
+.node-newsletter .field a:hover{
+    background: none;
+}
+.node-newsletter .field.field-type-file img, .node-newsletter .field.field-type-file .file-size{
+    display: none;
+}
+.node-newsletter .field-name-field-newsletter:before{
+    content: "Download newsletter";
+}
+.node-newsletter .field-name-field-newsletter{
+    background: url('../img/down22.png') no-repeat center center;
+    background-size:  contain;
+}
+.node-newsletter .field-name-field-mailchimp-url:before{
+    content: "Newsletter url";
+}
+.node-newsletter .field-name-field-mailchimp-url{
+    background: url('../img/wwwurl.png') no-repeat center center;
+    background-size:  contain;
+}
+.node-newsletter .print-link{
+    display: none;
+}
+#block-system-main .content .node-newsletter {
+    margin-top: 50px;
+}
+.view-newsletter-archive ul{
+    list-style-type: none; 
+}
+.view-newsletter-archive ul li{
+    padding-left: 0;
+    margin-left: 0;
+}
+.view-newsletter-archive ul li a{
+    font-weight: bold;
+}
+.view-newsletter-archive .views-field.views-field-title{
+    box-shadow: 0px 6px 8px -4px #ccc;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.view-newsletter-archive .views-field.views-field-title h3{
+    margin: 0.2em 0;
+}
+.view-newsletter-archive.view-display-id-page {
+    padding-right: 30px;
 }
