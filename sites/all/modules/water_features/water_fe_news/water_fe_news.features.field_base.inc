@@ -103,5 +103,48 @@ function water_fe_news_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_newsletter_group'.
+  $field_bases['field_newsletter_group'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_newsletter_group',
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'aksearch' => 0,
+        'article' => 0,
+        'basic_page' => 0,
+        'biblio' => 0,
+        'book' => 0,
+        'book_image' => 0,
+        'events' => 0,
+        'filedepot_folder' => 0,
+        'newsletter' => 'newsletter',
+        'organic_group' => 0,
+        'organization' => 0,
+        'person' => 0,
+        'simplenews' => 0,
+        'slide_image' => 0,
+        'water_book_image' => 0,
+        'webform' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
+  );
+
   return $field_bases;
 }
