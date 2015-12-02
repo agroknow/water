@@ -138,13 +138,18 @@ section.sidebars div.region-content{
     float:left;
     width:75%;
 }
-section.sidebars div.block-block,
+section.sidebars #sidebarSecond{
+    float:left;
+    width:25%;
+    padding:5px;
+}
+/*section.sidebars div.block-block,
 section.sidebars div.block-views,
 section.sidebars div.block-addthis{
     float:left;
     width:25%;
     padding:5px;
-}
+}*/
 
 section.sidebars div.block-block h2,
 section.sidebars div.block-views h2,

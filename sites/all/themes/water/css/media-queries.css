@@ -79,6 +79,10 @@
     .not-logged-in #block-system-main > div > ul.booktree{
         padding-right: 0;
     }
+    .footer-top .contact{
+	width: 50%;
+	margin: 0;
+    }
 
 }
 /* 768 and under */
@@ -233,10 +237,13 @@
         padding: 0 0.2em;
     }
     /* With sidebar */
-    section.sidebars div.block-block,
+/*    section.sidebars div.block-block,
     section.sidebars div.block-views,
     section.sidebars div.block-addthis{
         width: 100%;
+    }*/
+    section.sidebars #sidebarSecond{
+    width:100%;
     }
     section.sidebars div.region-content{
         width: 100%;
@@ -555,7 +562,11 @@
     .footer-middle .cols .views-field-field-logo .colspan12{
 	width: 100%;
     }
-
+    .footer-top .contact {
+    width: 380px;
+    float: left;
+    margin: 0 20px 0 0;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -682,6 +693,11 @@
         width: 100%;
         overflow-x: hidden;
     }
+    .footer-top .contact {
+    width: 100%;
+    float: left;
+    margin: 0;
+    }
 
 }
 
@@ -701,5 +717,13 @@
     #topWrapper{
         width: 100%;
         overflow-x: hidden;
+    }
+    .footer-top .contact {
+    width: 100%;
+    float: left;
+    margin: 0;
+    }
+    .footer-top .contact input, .footer-top .contact textarea{
+	width: 240px;
     }
 }
