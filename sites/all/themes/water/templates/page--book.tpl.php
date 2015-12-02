@@ -63,7 +63,9 @@ header: search_block
             
             <!-- #sidebars -->
             <?php print render($page['sidebar_first']); ?>
+	    <div id="sidebarSecond">
             <?php print render($page['sidebar_second']); ?>
+	    </div>
             
             <!-- #feed_icons -->
             <?php print $feed_icons; ?>
