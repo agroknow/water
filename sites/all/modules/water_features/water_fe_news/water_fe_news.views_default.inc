@@ -280,7 +280,7 @@ function water_fe_news_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'News in newsletter';
+  $handler->display->display_options['title'] = 'See also in the same newsletter';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -353,7 +353,7 @@ function water_fe_news_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['news_in_newsletter'] = array(
     t('Master'),
-    t('News in newsletter'),
+    t('See also in the same newsletter'),
     t('more'),
     t('Apply'),
     t('Reset'),
