@@ -10,7 +10,7 @@
 </section>
 <section class="block secondblock">
     <p>
-        MSU in collaboration with Agro-Κnow is building the GWPP.
+        MSU in collaboration with Agroknow is building the GWPP.
     </p>
 </section>
 <section class="block thirdblock">
