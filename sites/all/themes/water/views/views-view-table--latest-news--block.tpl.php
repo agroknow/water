@@ -27,7 +27,7 @@ foreach ($rows as $row_count => $row): ?>
 <?php print $row['field_news_image'] ?>
 <h3><?php print $row['title'] ?></h3>
 <?php print $row['body'] ?>
-<footer class="clearfix"><?php print $row['name'] ?><a href="<?php print $row['path'] ?>" class="more">more</a></footer>
+<footer class="clearfix"><?php //print $row['name'] ?><a href="<?php print $row['path'] ?>" class="more">more</a></footer>
 </article>
 <?php endforeach; ?>
 </section>
