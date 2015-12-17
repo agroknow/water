@@ -608,6 +608,9 @@ div.media-browser-tab.ui-tabs-hide{
     border-radius:5px 0 0 5px;
     border-right: 1px solid #ccc;
 }
+.toc-list > ul li ul {
+    display: none;
+}
 /* Contact form block */
 .footer-top .contact input,.footer-top .contact textarea{
     border-radius: 0;

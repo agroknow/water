@@ -160,6 +160,7 @@ function water_preprocess_html(&$variables) {
     $variables['base_root'] = $base_root;
     $variables['base_path'] = $base_path;
     
+    drupal_add_js(drupal_get_path('theme', 'water') . '/js/toc-accordion.js', array('group' => JS_DEFAULT, 'scope' => 'header', 'weight' => -1000));
     /*
      * google fonts
      */
