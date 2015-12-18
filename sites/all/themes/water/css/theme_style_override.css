@@ -611,6 +611,56 @@ div.media-browser-tab.ui-tabs-hide{
 .toc-list > ul li ul {
     display: none;
 }
+.toc{
+    background: none;
+    border: 0;
+}
+.toc-list ul {
+    margin-top: 5px;
+    padding-left: 10px;
+}
+.toc-list ul li a{
+    display: block;
+    width: 100%;
+    background: #3a89c9;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.node-type-book .region-content .field-name-body .toc-list a:hover{
+    text-decoration: none;
+}
+.node-type-book .region-content .field-name-body .toc-list a{
+    color: #fff;
+}
+.toc-list ul li{
+    position: relative;
+    margin-bottom: 5px;
+}
+.toc-list ul li.parent:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: solid 8px;
+    border-color: transparent #fff transparent transparent;
+    right: 11px;
+    top: 14px;
+    position: absolute;
+}
+.toc-list ul li.parent.active:after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: solid 8px;
+    border-color: #fff transparent transparent transparent;
+    right: 11px;
+    top: 14px;
+    position: absolute;
+}
 /* Contact form block */
 .footer-top .contact input,.footer-top .contact textarea{
     border-radius: 0;
@@ -618,4 +668,29 @@ div.media-browser-tab.ui-tabs-hide{
 }
 .footer-top .contact .webform-component-textarea .grippie{
     display: none;
+}
+/* Persons View */
+#block-views-persons-view-tables-block{
+    margin-top: 20px;
+}
+#block-views-persons-view-tables-block table{
+    width: 100%;
+}
+#block-views-persons-view-tables-block .table-wrapper {
+    display: none;
+}
+#block-views-persons-view-tables-block h2 {
+    padding: 15px;
+    border-radius: 12px;
+    background: #3a89c9;
+    color: #fff;
+    margin-bottom: 0;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#block-views-persons-view-tables-block h2.active{
+    border-radius: 12px 12px 0 0; 
+}
+#block-views-persons-view-tables-block table.waterstyle tr:first-child th:first-child,#block-views-persons-view-tables-block table.waterstyle tr:first-child th:last-child{
+    border-radius: 0; 
 }
