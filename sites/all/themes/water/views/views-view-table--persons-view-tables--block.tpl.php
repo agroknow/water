@@ -19,11 +19,12 @@
  * @ingroup views_templates
  */
 ?>
-<table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
-   <?php if (!empty($title) || !empty($caption)) : ?>
+<?php if (!empty($title) || !empty($caption)) : ?>
      <h2><?php print $caption . $title; ?> Group</h2>
-  <?php endif; ?>
-  <?php if (!empty($header)) : ?>
+<?php endif; ?>
+<div class="table-wrapper">
+<table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
+   <?php if (!empty($header)) : ?>
     <thead>
       <tr>
         <?php foreach ($header as $field => $label): ?>
@@ -46,3 +47,4 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+</div>
