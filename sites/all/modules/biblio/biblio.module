@@ -1999,7 +1999,7 @@ function _biblio_filter_replace_callback($matches, $op = '') {
   $str = '';
   if ($op == 'output footer') {
     if ($n > 0) {
-      $str = '<hr /><h3>' . t('References') . '</h3>';
+      $str = '<hr /><h2>' . t('References') . '</h2>';
       $str .= '<div class="references"><ol>';
       for ($m = 1; $m <= $n; $m++) {
         $str .= '<li id="reference' . $m . '"><a name="ref' . $m . '">' . _biblio_citekey_print($store_matches[$m -1]) . " </a></li>\n\n";
