@@ -1195,7 +1195,7 @@ class csl_text extends csl_format {
     $text = $this->format($text);
     if ($this->variable == 'title') {
       $url = biblio_get_title_url_info($data);
-      $text =  l($text, $url['link'], $url['options']) ;
+      $text =  l(biblio_remove_brace($text), $url['link'], $url['options']) ;
     }
     return $text;
   }
