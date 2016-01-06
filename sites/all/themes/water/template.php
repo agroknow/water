@@ -152,7 +152,6 @@ function water_preprocess_html(&$variables) {
     
     $variables['base_root'] = $base_root;
     $variables['base_path'] = $base_path;
-    
     /*
      * google fonts
      */
