@@ -20,7 +20,7 @@
  */
 ?>
 <?php if (!empty($title) || !empty($caption)) : ?>
-     <h2><?php print $caption . $title; ?> Group</h2>
+     <h2><?php print $caption . $title; ?></h2>
 <?php endif; ?>
 <div class="table-wrapper">
 <table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
