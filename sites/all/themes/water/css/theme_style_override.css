@@ -694,3 +694,7 @@ div.media-browser-tab.ui-tabs-hide{
 #block-views-persons-view-tables-block table.waterstyle tr:first-child th:first-child,#block-views-persons-view-tables-block table.waterstyle tr:first-child th:last-child{
     border-radius: 0; 
 }
+
+.node-book h3 {font-size: 1.3em}
+.node-book h4 {font-size: 1.2em}
+.node-book h5 {font-size: 1.1em}
