@@ -43,7 +43,7 @@ Drupal.behaviors.chapterAccordion = {
         $this.next().toggleClass('show');
         $this.next().slideToggle(400, function(){
 	    $('html, body').animate({
-	    scrollTop: $this.offset().top - 35
+	    scrollTop: $this.offset().top 
 	    }, 900);
 	});
     }
