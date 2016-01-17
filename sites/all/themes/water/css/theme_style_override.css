@@ -616,7 +616,7 @@ div.media-browser-tab.ui-tabs-hide{
     border: 0;
 }
 .toc-list ul {
-    margin-top: 5px;
+    /*margin-top: 5px;*/
     padding-left: 10px;
 }
 .toc-list ul li a{
@@ -627,7 +627,9 @@ div.media-browser-tab.ui-tabs-hide{
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 0.15em;
+    font-family: "Open Sans";
+    font-size: 14px;
 }
 .node-type-book .region-content .field-name-body .toc-list a:hover{
     text-decoration: none;
@@ -637,7 +639,7 @@ div.media-browser-tab.ui-tabs-hide{
 }
 .toc-list ul li{
     position: relative;
-    margin-bottom: 5px;
+    margin: 0.5em 0;
 }
 .toc-list ul li.parent:after {
     content: "";
@@ -680,16 +682,42 @@ div.media-browser-tab.ui-tabs-hide{
     display: none;
 }
 #block-views-persons-view-tables-block h2 {
-    padding: 15px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 0.15em;
     background: #3a89c9;
     color: #fff;
     margin-bottom: 0;
     margin-top: 10px;
     cursor: pointer;
+    position: relative;
+    font-size: 1.4em;
+
 }
+#block-views-persons-view-tables-block h2:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 8px;
+  border-color: transparent #fff transparent transparent;
+  right: 11px;
+  top: 14px;
+  position: absolute;
+}
+#block-views-persons-view-tables-block h2.active:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid 8px;
+  border-color: #fff transparent transparent transparent;
+  right: 11px;
+  top: 14px;
+  position: absolute;
+}
+
 #block-views-persons-view-tables-block h2.active{
-    border-radius: 12px 12px 0 0; 
+    border-radius: 0.15em 0.15em 0 0; 
 }
 #block-views-persons-view-tables-block table.waterstyle tr:first-child th:first-child,#block-views-persons-view-tables-block table.waterstyle tr:first-child th:last-child{
     border-radius: 0; 
