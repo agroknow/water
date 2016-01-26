@@ -81,6 +81,41 @@ function water_preprocess_page(&$vars) {
     ));
       
       }
+    if(isset($vars['tabs']['#primary']) && is_array($vars['tabs']['#primary']) && $vars['node']->type == 'book'){
+    $tabs = $vars['tabs']['#primary'];
+    for($i=0; $i < count($tabs); $i++){
+	switch ($tabs[$i]['#link']['title']) {
+	    case 'View current':
+		$vars['tabs']['#primary'][$i]['#link']['title'] = 'View published version';
+		break;
+	    case 'Edit current':
+		$vars['tabs']['#primary'][$i]['#link']['title'] = 'Edit published version';
+		break;
+	    case 'Revision operations':
+		$vars['tabs']['#primary'][$i]['#link']['title'] = 'Revisions';
+		break;
+	    default:
+		break;
+	    }
+	}
+      }
+    
+    if(isset($vars['tabs']['#secondary']) && is_array($vars['tabs']['#secondary']) && $vars['node']->type == 'book'){
+    $tabssec = $vars['tabs']['#secondary'];
+    for($i=0; $i < count($tabssec); $i++){
+	switch ($tabssec[$i]['#link']['title']) {
+	    case 'View Current':
+		$vars['tabs']['#secondary'][$i]['#link']['title'] = 'View published version';
+		break;
+	    case 'Edit Current':
+		$vars['tabs']['#secondary'][$i]['#link']['title'] = 'Edit published version';
+		break;
+	    default:
+		break;
+	    }
+	}
+      }
+      
   }
   
     
