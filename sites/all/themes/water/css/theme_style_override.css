@@ -289,11 +289,11 @@ table.waterstyle tr.even,table.waterstyle tr.odd {
 table.waterstyle tr:last-child td{
 	border-bottom:0;
 }
-section.sidebars table.waterstyle {
+/*section.sidebars table.waterstyle {
     table-layout: fixed;
     width: 100%;
     word-break: break-all;
-}
+}*/
 table.s-table{
     max-width: 100%;
     width: 100%;
