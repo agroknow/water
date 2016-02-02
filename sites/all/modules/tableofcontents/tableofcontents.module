@@ -24,7 +24,7 @@
 
 define('TABLEOFCONTENTS_REMOVE_PATTERN', '/(?:<p(?:\s[^>]*)?'.'>)?\[toc(?:\s[^]]*?)?\](?:<\/p\s*>)?/');
 define('TABLEOFCONTENTS_ALLOWED_TAGS', '<em> <i> <strong> <b> <u> <del> <ins> <sub> <sup> <cite> <strike> <s> <tt> <span> <font> <abbr> <acronym> <dfn> <q> <bdo> <big> <small>');
-
+module_load_include('admin.inc', 'tableofcontents');
 /**
  * Implementation of hook_help().
  */

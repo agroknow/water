@@ -266,3 +266,50 @@ function aklinkitplugin_autocomplete($string) {
 
   drupal_json_output($matches);
 }
+
+/**
+ * Implements hook_node_access().
+ */
+function aklinkitplugin_node_access($node, $op, $account) {
+    //die('will change node access');
+  $node_types = array('book');
+  if ( ! is_object($node) || ! in_array($node->type, $node_types) || $op !== 'update') {
+    return NODE_ACCESS_IGNORE;
+  }
+
+  $allowed_uids = author_list_uids_from_list($node);
+
+  if (empty($allowed_uids)) {
+    return NODE_ACCESS_IGNORE;
+  }
+  
+  if (in_array('author', $account->roles)) {
+    if (in_array($account->uid, $allowed_uids) && ($node->workbench_moderation['current']->state == 'draft' || $node->workbench_moderation['current']->state == 'published' )) {
+    return NODE_ACCESS_ALLOW;
+    }
+  }
+  
+  if (in_array('editor', $account->roles) && $node->workbench_moderation['current']->state == 'draft') {
+    return NODE_ACCESS_DENY;
+  }
+}
+
+function author_list_uids_from_list($node) {
+  $persons = field_get_items('node', $node, 'field_authors');
+  $allowed_persons = array();
+  if ($persons) {
+    $allowed_persons = array_map(function($person) {
+      return $person['nid'];
+    }, $persons);
+  }
+  if($allowed_persons) {
+      $persons_objs = node_load_multiple($allowed_persons);
+  }
+  $allowed_uids = array();
+  foreach ($persons_objs as $pers) {
+      if(isset($pers->field_user['und'][0]['target_id'])) {
+	  $allowed_uids[] = $pers->field_user['und'][0]['target_id'];
+      }
+  }
+  return $allowed_uids;
+}
