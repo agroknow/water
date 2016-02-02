@@ -289,9 +289,9 @@ function aklinkitplugin_node_access($node, $op, $account) {
     }
   }
   
-  if (in_array('editor', $account->roles) && $node->workbench_moderation['current']->state == 'draft') {
-    return NODE_ACCESS_DENY;
-  }
+//  if (in_array('editor', $account->roles) && $node->workbench_moderation['current']->state == 'draft') {
+//    return NODE_ACCESS_DENY;
+//  }
 }
 
 function author_list_uids_from_list($node) {
