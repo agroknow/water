@@ -87,3 +87,4 @@ footer_third: copyright
 ****** -->
     <?php print render($page['footer_third']); ?>
 </footer>
+<?php print render($page['toggle']); ?>

@@ -61,3 +61,4 @@
     <?php print render($page['footer_second']); ?>
     <?php print render($page['footer_third']); ?>
 </footer>
+<?php print render($page['toggle']); ?>

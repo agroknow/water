@@ -151,6 +151,12 @@ oWaterJQuery(document).ready(function() {
             oWaterJQuery('#edit-book-book-helper-link-title-sync').prop('checked',true);
         }
         });
+
+oWaterJQuery('#toggle-block .toggle').on('click', function (e) {
+                e.preventDefault();
+                jQuery(this).parent().toggleClass('closed');
+                jQuery('#toggle-block').css({'margin-right': '0px'});
+            });	
 });
 
 function isTouchDevice(){

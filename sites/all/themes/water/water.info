@@ -35,6 +35,7 @@ regions[footer] = Footer
 regions[help] = Help
 regions[page_top] = Page top
 regions[page_bottom] = Page bottom
+regions[toggle] = Toggle
 
 ; Information added by  packaging script on 2013-12-04
 version = "7.x-1.0"
