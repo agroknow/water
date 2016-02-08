@@ -87,6 +87,9 @@
 }
 /* 768 and under */
 @media screen and (max-width: 768px) {
+    .footer-bottom div.block:last-child {
+    width: auto;
+}
     table.s-table,table.waterstyle {
 /*    max-width: 100%;*/
     width: 100%;
