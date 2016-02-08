@@ -667,7 +667,7 @@ article.event section .more {
 }
 
 .footer-bottom {
-    height: 52px;
+/*    height: 52px;*/
     background: #f26c4f;
 }
 .footer-bottom > div > * {
