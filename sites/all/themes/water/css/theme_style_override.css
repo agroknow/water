@@ -762,4 +762,21 @@ div.media-browser-tab.ui-tabs-hide{
     text-indent: -9999px;
     top: 0px;
     width: 40px;
-    }
+}
+.footer-bottom div.block:last-child{
+    width: 50%;
+    margin-top: 0;
+}
+.footer-bottom div.block p {
+    display: inline;
+}
+.footer-bottom div.block p span.creative-commons {
+    font-size: 14px;
+    text-transform: uppercase
+}
+.footer-bottom div.block p span.creative-commons a{
+    color: #fff;
+}
+.footer-bottom div.block p span.creative-commons a:hover{
+    color: #3a89c9
+}
