@@ -63,6 +63,16 @@ function aklinkitplugin_form_alter(&$form, &$form_state, $form_id){
     }
 }
 
+function aklinkitplugin_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+    $form['#validate'][] = '_aklinkitplugin_register_validation';
+}
+
+function _aklinkitplugin_register_validation() {
+    if(strpos(request_uri(),'?q=') !== false) {
+	form_set_error('', t('There was an error while trying to submit form please try again'));
+    }
+}
+
 function file_entity_submit_override($form, &$form_state) { 
   module_load_include('inc', 'file_entity', 'file_entity.pages');
 
