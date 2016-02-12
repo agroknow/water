@@ -11,7 +11,7 @@ CKEDITOR.plugins.add( 'NodeEmbed',
           
           return {
             
-            title : 'Embed Image', 
+            title : 'Embed Image or table', 
             minWidth : 700,
             minHeight : 400,
             //the contents of the dialog
@@ -19,7 +19,7 @@ CKEDITOR.plugins.add( 'NodeEmbed',
               [
                 {
                   id : 'iframe',
-                  label : 'Embed an Image: ',
+                  label : 'Embed an Image or a table: ',
                   expand : true,
                   elements :
                     [

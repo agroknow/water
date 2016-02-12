@@ -11,7 +11,7 @@ CKEDITOR.plugins.add( 'NodeEmbed',
           
           return {
             
-            title : 'Embed Image', 
+            title : 'Embed Image or table', 
             minWidth : 700,
             minHeight : 400,
             //the contents of the dialog
@@ -19,7 +19,7 @@ CKEDITOR.plugins.add( 'NodeEmbed',
               [
                 {
                   id : 'iframe',
-                  label : 'Embed an Image: ',
+                  label : 'Embed an Image or a table: ',
                   expand : true,
                   elements :
                     [
@@ -51,7 +51,7 @@ CKEDITOR.plugins.add( 'NodeEmbed',
       //add the button to the menu
       editor.ui.addButton( 'NodeEmbed',
 	      {
-		      label : 'Embed Image',
+		      label : 'Node Embed',
 		      icon : this.path + 'images/icon.gif',
 		      command : 'NodeEmbed'
 	      } 
@@ -71,7 +71,7 @@ CKEDITOR.plugins.add( 'NodeEmbed',
 		      {
 			      nodemenu :
 			      {
-				      label : 'Embed Image',
+				      label : 'Node Embed',
 				      command : 'NodeEmbed',
 				      group : 'NodeEmbed',
 				      order : 1
